@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\DepartmentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 
 #[ORM\Entity(repositoryClass: DepartmentRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Department
 {
     #[ORM\Id]
@@ -28,6 +30,12 @@ class Department
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
+        $this->setModifiedAt(new \DateTimeImmutable());
+    }
+    
+    #[ORM\PreUpdate]
+    public function updateModificationDate(): void
+    {
         $this->setModifiedAt(new \DateTimeImmutable());
     }
 
