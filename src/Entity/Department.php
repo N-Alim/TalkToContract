@@ -25,6 +25,12 @@ class Department
     #[ORM\Column(type: 'datetime_immutable')]
     private $modified_at;
 
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTimeImmutable());
+        $this->setModifiedAt(new \DateTimeImmutable());
+    }
+
     public function getId(): ?int
     {
         return $this->id;
