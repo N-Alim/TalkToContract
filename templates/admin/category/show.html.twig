@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+ {% extends "admin/admin.html.twig" %} 
 
-<title>Category</title>
+ {% block title %}Category {% endblock %}
+
 
 {% block body %}
     <h1>Category</h1>
@@ -26,9 +27,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_category_index') }}">back to list</a>
+    <a href="{{ path('category_index_admin') }}">back to list</a>
 
-    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
+    <a href="{{ path('category_edit_admin', {'id': category.id}) }}">edit</a>
 
-    {{ include('category/_delete_form.html.twig') }}
+    {{ include('/admin/category/_delete_form.html.twig') }}
 {% endblock %}
