@@ -9,7 +9,7 @@ use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Categories>
+ * @extends ServiceEntityRepository<Category>
  *
  * @method Category|null find($id, $lockMode = null, $lockVersion = null)
  * @method Category|null findOneBy(array $criteria, array $orderBy = null)
@@ -20,7 +20,7 @@ class CategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Categories::class);
+        parent::__construct($registry, Category::class);
     }
 
     /**
