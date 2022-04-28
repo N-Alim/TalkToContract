@@ -1,0 +1,41 @@
+ {% extends "admin/admin.html.twig" %} 
+
+ {% block title %}Category index {% endblock %}
+
+{% block body %}
+    <h1>Category index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Modified_at</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in category %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+                <td>{{ category.modifiedAt ? category.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('category_show_admin', {'id': category.id}) }}">show</a>
+                    <a href="{{ path('category_edit_admin', {'id': category.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('category_new_admin') }}">Create new</a>
+    {# <div data-udata-dataset="59315a2c88ee385fac21149f">cat</div>
+    <script data-udata="https://www.data.gouv.fr/" src="https://static.data.gouv.fr/static/oembed.js" async defer></script> #}
+{% endblock %}
