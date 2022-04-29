@@ -5,21 +5,27 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Department;
+use App\Service\ApiCallService;
 
 class DepartmentFixtures extends Fixture
 {
+    private ApiCallService $apiCaller ;
+
+    public function __construct(ApiCallService $apiCaller)
+    {
+        $this->apiCaller = $apiCaller;
+    }
+
     public function load(ObjectManager $manager): void
     {
-
-        for ($cnt=0; $cnt < 50; $cnt++) { 
+        foreach ($this->apiCaller->getAllDepartments() as $value) {
             $department = new Department();
         
-            $department->setName("department" . strval($cnt + 1));
-            $department->setNumber($cnt + 1);
+            $department->setName($value["nom"]);
+            $department->setNumber(intval($value["code"]));
             
             $manager->persist($department);
         }
-
 
         $manager->flush();
     }

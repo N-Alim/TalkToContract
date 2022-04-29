@@ -8,6 +8,13 @@ Site de mise en relation entre candidats et recruteurs dans le cadre de stages
 
 Les instructions suivantes doivent être éxecutés dans le dossier racine du projet
 
+### Dépendances Symfony
+
+Installez les dépendances nécessaires :
+```Shell
+composer install
+```
+
 ### Base de données
 
 1. Créez la base de données :
@@ -23,13 +30,6 @@ php bin/console doctrine:migrations:migrate
 3. Remplissez la base de données avec les données de test : 
 ```Shell
 php bin/console doctrine:fixtures:load
-```
-
-### Dépendances Symfony
-
-Installez les dépendances nécessaires :
-```Shell
-composer install
 ```
 
 ### Webpack
@@ -55,10 +55,16 @@ php -S localhost:4000 -t public
 npm run watch
 ```
 
-## Mise à jour de la base de données
+## Mise à jour
 
 Les instructions suivantes doivent être éxecutés dans le dossier racine du projet
 
+### Dépendances Symfony
+
+Installez les dépendances manquantes :
+```Shell
+composer install
+```
 
 1. Mettez à jour la base de donnée avec les fichiers de migrations :
 ```Shell
