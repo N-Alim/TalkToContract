@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Component\HttpClient\Response\TraceableResponse;
 
 class ApiCallService
 {
@@ -13,21 +14,39 @@ class ApiCallService
         $this->client = $client;
     }
 
+    public function checkRequestResponse(string $urlRequest, TraceableResponse $response) : array
+    {
+        if ($response->getStatusCode() === 200)
+        {
+            return $response->toArray();    
+        }
+
+        else
+        {
+            echo "Un problème est survenu lors de la requête\n" 
+            . "Url : " . $urlRequest . "\n" 
+            . "Code de status : " . $response->getStatusCode() . "\n";
+            return [];
+        }
+    }
+
     public function getAllDepartments(): array
     {
+        $urlRequest = 'https://geo.api.gouv.fr/departements';
         $response = $this->client->request(
             'GET',
-            'https://geo.api.gouv.fr/departements'
+            $urlRequest,
         );
 
-        return $response->toArray();
+        return $this->checkRequestResponse($urlRequest, $response);
     }
 
     public function callRomeApi(string $urlRequest): array
     {
+        $urlAuthRequest = 'https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=/partenaire';
         $authResponse = $this->client->request(
             'POST',
-            'https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=/partenaire', [
+            $urlAuthRequest, [
                 'headers' => [
                     'Content-Type' => 'application/x-www-form-urlencoded',
                 ],
@@ -40,22 +59,36 @@ class ApiCallService
             ]
         );
 
-        $response = $this->client->request(
-            'GET',
-            $urlRequest, [
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $authResponse->toArray()["access_token"],
-                ],
-            ]
-        );
+        $authResponseArray = $this->checkRequestResponse($urlAuthRequest, $authResponse);
 
-        return $response->toArray();
+        if (count($authResponseArray) !== 0)
+        {
+            $response = $this->client->request(
+                'GET',
+                $urlRequest, [
+                    'headers' => [
+                        'Authorization' => 'Bearer ' . $authResponseArray["access_token"],
+                    ],
+                ]
+            );
+    
+            return $this->checkRequestResponse($urlRequest, $response);
+        }   
+
+        else
+        {
+            return [];
+        }
     }
 
     public function getAllJobsCategories(): array
     {
-        // url à changer
-        return $this->callRomeApi('https://api.emploi-store.fr/partenaire/rome/v1/competence');
+        return $this->callRomeApi('https://api.emploi-store.fr/partenaire/rome/v1/racinecompetence');
+    }
+
+    public function getAllJobsSubCategories(): array
+    {
+        return $this->callRomeApi('https://api.emploi-store.fr/partenaire/rome/v1/noeudcompetence');
     }
 
     public function getAllJobsSkills(): array
@@ -64,5 +97,3 @@ class ApiCallService
     }
 }
 
-// Vérifier les urls à appeler, le nombre de valeurs à récupérer, mettre en place l'autocomplétion, 
-// vérifier avec antoine si le fichier est bon et si les valeurs pour les appels de l'api rome ne sont pas à externaliser
