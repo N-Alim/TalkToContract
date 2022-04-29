@@ -1,9 +1,9 @@
  {% extends "admin/admin.html.twig" %} 
 
- {% block title %}Skills index {% endblock %}
+ {% block title %}Skill index {% endblock %}
 
 {% block body %}
-    <h1>Skills index</h1>
+    <h1>Skill index</h1>
 
     <table class="table">
         <thead>
@@ -16,15 +16,15 @@
             </tr>
         </thead>
         <tbody>
-        {% for skills in skills %}
+        {% for skill in skill %}
             <tr>
-                <td>{{ skills.id }}</td>
-                <td>{{ skills.name }}</td>
-                <td>{{ skills.modifiedAt ? skills.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ skills.createdAt ? skills.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ skill.id }}</td>
+                <td>{{ skill.name }}</td>
+                <td>{{ skill.modifiedAt ? skill.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ skill.createdAt ? skill.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('skills_show_admin', {'id': skills.id}) }}">show</a>
-                    <a href="{{ path('skills_edit_admin', {'id': skills.id}) }}">edit</a>
+                    <a href="{{ path('skill_show_admin', {'id': skill.id}) }}">show</a>
+                    <a href="{{ path('skill_edit_admin', {'id': skill.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -35,7 +35,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('skills_new_admin') }}">Create new</a>
+    <a href="{{ path('skill_new_admin') }}">Create new</a>
     {# <div data-udata-dataset="59315a2c88ee385fac21149f">cat</div>
     <script data-udata="https://www.data.gouv.fr/" src="https://static.data.gouv.fr/static/oembed.js" async defer></script> #}
 {% endblock %}

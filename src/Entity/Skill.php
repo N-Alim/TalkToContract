@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\SkillsRepository;
+use App\Repository\SkillRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SkillsRepository::class)]
+#[ORM\Entity(repositoryClass: SkillRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-class Skills
+class Skill
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

@@ -2,32 +2,32 @@
 
 namespace App\Repository;
 
-use App\Entity\Skills;
+use App\Entity\Skill;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Skills>
+ * @extends ServiceEntityRepository<Skill>
  *
- * @method Skills|null find($id, $lockMode = null, $lockVersion = null)
- * @method Skills|null findOneBy(array $criteria, array $orderBy = null)
- * @method Skills[]    findAll()
- * @method Skills[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Skill|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Skill|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Skill[]    findAll()
+ * @method Skill[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SkillsRepository extends ServiceEntityRepository
+class SkillRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Skills::class);
+        parent::__construct($registry, Skill::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Skills $entity, bool $flush = true): void
+    public function add(Skill $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class SkillsRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Skills $entity, bool $flush = true): void
+    public function remove(Skill $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -48,7 +48,7 @@ class SkillsRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Skills[] Returns an array of Skills objects
+    //  * @return Skill[] Returns an array of Skill objects
     //  */
     /*
     public function findByExampleField($value)
@@ -65,7 +65,7 @@ class SkillsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Skills
+    public function findOneBySomeField($value): ?Skill
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')
