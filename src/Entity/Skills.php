@@ -6,6 +6,7 @@ use App\Repository\SkillsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SkillsRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Skills
 {
     #[ORM\Id]
@@ -16,16 +17,22 @@ class Skills
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $modified_at;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $created_at;
 
     public function __construct()
     {
-        $this->setModifiedAt(new \DateTimeImmutable());
         $this->setCreatedAt(new \DateTimeImmutable());
+        $this->setModifiedAt(new \DateTimeImmutable());
+    }
+
+    #[ORM\PreUpdate]
+    public function updateModificationDate(): void
+    {
+        $this->setModifiedAt(new \DateTimeImmutable());
     }
 
     public function getId(): ?int
