@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<title>Hello OffersController!</title>
+  {% block stylesheets %}
+            {{ encore_entry_link_tags('client') }}
+    {% endblock %}
+
+{% block body %}
+
+
+<main>
+<section class="wrap">
+    <h1>Page des offres </h1>
+
+    <div class="search">
+        <h3>Filtres<h3>
+        <div class ="filtre">
+        <label for="offer_type">Type d'offre :</label>
+            <select name="offertype">
+            <option value="distanciel">Distanciel</option>
+          <option value="présentiel"> Présentiel </option>
+        <option value="partiel">Partiel</option>
+        </select>
+        <label for="cat">Catégorie :</label>
+            <select name="categorie">
+                <option value="">metier</option>
+                <option value="">metier</option>
+            </select>
+            <label for="sous-cat">Sous catégorie :</label>
+            <select name="sous-categorie"></select>
+            <label for="week-hour">Heure par semaine :</label>
+                <input type="number" id="week-hour" name="week-hour">
+            <label for="ville">Ville :</label> <input type="text" id="ville" name="ville">
+        <label for="jobName">Domaine recherché :</label>  
+        <input type="text" id="jobName" name="domaine" placeholder="Informatique"> 
+        
+        </div>
+    </div>
+    <div class="wrap-offre">
+        <div class="poste_offre">
+                <h2>Liste offres<h2>
+                <div class="poste1">
+                    <div class="posteName">
+                        <div>Lorem ipsum maypu poutre vlamp</div>
+                            <div class="nav-pagination">
+                                <button class="prev">Précédent</button>
+                                <input type="number" id="pagination">
+                                <button class="next">Suivant</button>
+                                <button class="go">Go</button>
+                            </div>
+                    </div>
+        </div>           
+    </div>
+          
+    </section>
+         
+</main>
+{% endblock %}
