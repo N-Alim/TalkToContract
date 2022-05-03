@@ -8,6 +8,8 @@ use Doctrine\Persistence\ObjectManager;
 
 class OffersTypeFixtures extends Fixture
 {
+    public const OFFER_TYPE_REFERENCE = 'offer_type';
+
     public function load(ObjectManager $manager): void
     {
         $offersType = new OffersType();
@@ -17,5 +19,7 @@ class OffersTypeFixtures extends Fixture
         $manager->persist($offersType);
 
         $manager->flush();
+
+        $this->addReference(self::OFFER_TYPE_REFERENCE, $offersType);
     }
 }
