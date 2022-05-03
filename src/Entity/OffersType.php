@@ -94,7 +94,7 @@ class OffersType
     {
         if (!$this->offers->contains($offer)) {
             $this->offers[] = $offer;
-            $offer->setIdOffersType($this);
+            $offer->setOffersType($this);
         }
 
         return $this;
@@ -104,8 +104,8 @@ class OffersType
     {
         if ($this->offers->removeElement($offer)) {
             // set the owning side to null (unless already changed)
-            if ($offer->getIdOffersType() === $this) {
-                $offer->setIdOffersType(null);
+            if ($offer->getOffersType() === $this) {
+                $offer->setOffersType(null);
             }
         }
 
