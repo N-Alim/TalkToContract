@@ -2,19 +2,19 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\OfferType;
+use App\Entity\OffersType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class OffertypeFixtures extends Fixture
+class OffersTypeFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $offertype = new OfferType();
-        $offertype->setLabel('offerType');
+        $offersType = new OffersType();
+        $offersType->setLabel('offersType');
         // $product = new Product();
 
-        $manager->persist($offertype);
+        $manager->persist($offersType);
 
         $manager->flush();
     }

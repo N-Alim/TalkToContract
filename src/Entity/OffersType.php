@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\OfferTypeRepository;
+use App\Repository\OffersTypeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: OfferTypeRepository::class)]
+#[ORM\Entity(repositoryClass: OffersTypeRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-class OfferType
+class OffersType
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -23,10 +25,14 @@ class OfferType
     #[ORM\Column(type: 'datetime_immutable')]
     private $modified_at;
 
+    #[ORM\OneToMany(mappedBy: 'offers_type', targetEntity: Offer::class)]
+    private $offers;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
         $this->setModifiedAt(new \DateTimeImmutable());
+        $this->offers = new ArrayCollection();
     }
 
     #[ORM\PreUpdate]
@@ -72,6 +78,36 @@ class OfferType
     public function setModifiedAt(\DateTimeImmutable $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Offer>
+     */
+    public function getOffers(): Collection
+    {
+        return $this->offers;
+    }
+
+    public function addOffer(Offer $offer): self
+    {
+        if (!$this->offers->contains($offer)) {
+            $this->offers[] = $offer;
+            $offer->setIdOffersType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffer(Offer $offer): self
+    {
+        if ($this->offers->removeElement($offer)) {
+            // set the owning side to null (unless already changed)
+            if ($offer->getIdOffersType() === $this) {
+                $offer->setIdOffersType(null);
+            }
+        }
 
         return $this;
     }
