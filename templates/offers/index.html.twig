@@ -1,58 +1,84 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <title>Hello OffersController!</title>
   {% block stylesheets %}
             {{ encore_entry_link_tags('client') }}
     {% endblock %}
 
-{% block body %}
+<script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
+    <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css">  
+
+
 
 
 <main>
-<section class="wrap">
-    <h1>Page des offres </h1>
+<section class="wrap-all">
 
     <div class="search">
         <h3>Filtres<h3>
         <div class ="filtre">
-        <label for="offer_type">Type d'offre :</label>
+        <label for="offer_type" class="txt">Type d'offre :</label>
             <select name="offertype">
             <option value="distanciel">Distanciel</option>
           <option value="présentiel"> Présentiel </option>
         <option value="partiel">Partiel</option>
         </select>
-        <label for="cat">Catégorie :</label>
+        <label for="cat" class="txt">Catégorie :</label>
             <select name="categorie">
-                <option value="">metier</option>
-                <option value="">metier</option>
             </select>
-            <label for="sous-cat">Sous catégorie :</label>
+            <label for="sous-cat" class="txt">Sous catégorie :</label>
             <select name="sous-categorie"></select>
-            <label for="week-hour">Heure par semaine :</label>
-                <input type="number" id="week-hour" name="week-hour">
-            <label for="ville">Ville :</label> <input type="text" id="ville" name="ville">
-        <label for="jobName">Domaine recherché :</label>  
+
+                 <form>
+ 
+             <div data-role="rangeslider">
+            <label for="range-left" class="txt">Heure par semaine min:</label>
+            <input type="range" name="range-left" id="range-left" min="0" max="20" value="5" data-popup-enabled="true" data-show-value="true">
+            <label for="range-right" class="txt">Heure par semaine :</label>
+            <input type="range" name="range-right" id="range-right" min="0" max="40" value="10" data-popup-enabled="true" data-show-value="true">
+              </div>
+        </form>
+
+            <label for="ville" class="txt">Ville :</label> <input type="text" id="ville" name="ville">
+            <label for="department" class="txt">Département :</label><select name="department"></select>
+            {# <label for="exp">Expérience :</label> <input type="range" id="exp" name="exp"> #}
+        <form>
+             <div data-role="rangeslider">
+            <label for="range-left" class="txt">Expérience min:</label>
+            <input type="range" name="range-left" id="range-left" min="0" max="20" value="5" data-popup-enabled="true" data-show-value="true">
+            <label for="range-right" class="txt">Expérience:</label>
+            <input type="range" name="range-right" id="range-right" min="0" max="30" value="10" data-popup-enabled="true" data-show-value="true">
+              </div>
+        </form>
+    
+
+        <label for="jobName" class="txt">Domaine recherché :</label>  
         <input type="text" id="jobName" name="domaine" placeholder="Informatique"> 
         
         </div>
     </div>
-    <div class="wrap-offre">
+    <div class="offre">
         <div class="poste_offre">
-                <h2>Liste offres<h2>
-                <div class="poste1">
-                    <div class="posteName">
-                        <div>Lorem ipsum maypu poutre vlamp</div>
-                            <div class="nav-pagination">
-                                <button class="prev">Précédent</button>
-                                <input type="number" id="pagination">
-                                <button class="next">Suivant</button>
-                                <button class="go">Go</button>
-                            </div>
-                    </div>
-        </div>           
+                <h2>Liste des offres<h2>
+                {# <div class="poste1"></div> #}
+               
+         <div class="nav-pagination">
+            <nav aria-label="pagination">
+                <ul class="pagination hover">
+                    <li><a href=""><span aria-hidden="true">Précédent</span></a></li>
+                    <li><a href="">1</a></li>
+                    <li><a href="" aria-current="page">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href=""><span aria-hidden="true">Suivant</span></a></li>
+                </ul>
+            </nav>
+         </div>
+        </div> 
     </div>
           
     </section>
          
 </main>
-{% endblock %}
+
