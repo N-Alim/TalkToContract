@@ -135,7 +135,7 @@ class OfferRepository extends ServiceEntityRepository
         // {
         //     if ($category_id !== "")
         //     {
-        //         $subCategoriesId = $this->categoryRepository->getSubCategoriesIdArray($category_id);
+        //         $subCategoriesId = $this->categoryRepository->getSubCategoriesIdArray(intval($category_id));
 
         //         $queryBuilder->andWhere('o.sub_category IN (?8)')
         //         ->setParameter(8, 
