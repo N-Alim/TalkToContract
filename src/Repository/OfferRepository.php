@@ -89,7 +89,7 @@ class OfferRepository extends ServiceEntityRepository
         $town = $request->query->get('town') ?? "";
         $experience_min = $request->query->get('experience_min') ?? "";
         $experience_max = $request->query->get('experience_max') ?? "";
-        $category_id = 4;
+        $category_id = $request->query->get('category_id') ?? "";;
         $sub_category_id = $request->query->get('sub_category_id') ?? "";
         $offers_type_id = $request->query->get('offers_type_id') ?? "";
         $department_id = $request->query->get('department_id') ?? "";
