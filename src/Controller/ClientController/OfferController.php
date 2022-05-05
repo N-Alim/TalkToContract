@@ -34,8 +34,6 @@ class OfferController extends AbstractController
             array_push($offers, $offer->getDataArray());
         }
 
-        return $this->json([
-            'offers' => $offers,
-        ]);
+        return $this->json($offers);
     }
 }
