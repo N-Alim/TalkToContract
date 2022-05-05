@@ -28,7 +28,7 @@
 .header_container li {
     margin-top: 40px;
     position: relative;
-    left: 400px;
+    left: 25%;
 }
   
 .header_container a:visited {
@@ -37,6 +37,11 @@
 
 .header_container a:hover {
     color: blue;
+}
+
+.header_container img {
+    position: absolute;
+    
 }
 
 .header_btn-connexion {
