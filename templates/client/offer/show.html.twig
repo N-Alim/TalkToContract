@@ -1,0 +1,68 @@
+{% extends "client/client.html.twig" %} 
+
+{% block title %}Offer{% endblock %}
+
+{% block body %}
+    <main class="offer_page">
+        <a href="{{ path('offer_index_client') }}">
+            <span class="urlArrows">&lt;&lt; </span>
+            Retourner à la liste des offres
+        </a>      
+
+        {% if offer.active %}
+
+            <h1>{{ offer.jobName }}</h1>
+
+            <h2>{{ offer.department.name }}({{ offer.department.number }}) - {{ offer.town }}</h2>
+
+            <h3>Offre actualisée le {{offer.modifiedAt|date('d/m/Y ')}}</h3>
+
+            <div class="data-container">
+                <div class="mainData">
+                    <h4>Description</h4>
+                    <p>{{ offer.description }}</p>
+
+                    <h4>Tâches</h4>
+                    <p>{{ offer.tasks }}</p>
+
+                    <h4>Expérience requis</h4>
+                    <p>{{ (offer.experience <= 1) ? 
+                        offer.experience ~ " an d'expérience requis"
+                        : offer.experience ~ " ans d'expériences requis"}}</p>
+
+                    <h4>Compétences requises</h4>
+                    <div class="tagsMain">
+                        <span class="tag">Jello</span>
+                        <span class="tag">Jelly</span>
+
+                        {# {% for skill in offer.skills %}
+                            <span class="tag">{{ skill }}</span>
+                        {% endfor %} #}
+                    </div>
+                </div>
+
+                <sidebar class="frame">
+                    <h4>Détails</h4>
+
+                    {# <p>Catégorie {{ offer.subCategory.category }}</p> #}
+
+                    {# <p>Sous-catégorie {{ offer.subCategory }}</p> #}
+
+                    <p>Travail réalisé en {{ offer.offersType.label }}</p>
+
+                    <p>Nombre d'heures par semaine {{ offer.weekHoursNumber }}</p>
+
+
+                    <h4>Coordonnées</h4>
+
+                    <p>{{ offer.company }}</p>
+
+                    <p>{{ offer.address }}</p>
+
+                </sidebar>
+            </div>
+        {% else %}    
+            <h1>Un problème est survenu lors de l'accès à l'offre</h1>
+            <p></p>
+        {% endif %}
+{% endblock %}
