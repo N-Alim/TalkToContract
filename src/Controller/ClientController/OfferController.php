@@ -17,7 +17,7 @@ class OfferController extends AbstractController
     public function test(OfferRepository $offerRepository): Response
     {
         // À remplacer par la page du front
-        return $this->render('admin/offer/index.html.twig', [
+        return $this->render('client/offer/index.html.twig', [
             'offers' => $offerRepository->findAll(),
         ]);
     }
@@ -36,4 +36,7 @@ class OfferController extends AbstractController
 
         return $this->json($offers);
     }
+
+    
+
 }
