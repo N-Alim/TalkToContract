@@ -4,60 +4,64 @@
     box-sizing: border-box;
 }
 
-.header_container  nav ul{
+.header_nav-bar {
     display: flex;
-    flex-direction : row;
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 15vh;
+}
+
+.header_container {
+    display: flex;
     background-color: white;
-    color: black;
+    padding: 10px;
+}
+
+.header_container ul {
+    display: flex;
+    flex-direction: row;
     gap: 4rem;
-    font-size: 20px;
-    justify-content: left;
-    position: absolute;
+    margin: 0 auto;
 }
-  
-.header_container  nav ul a {
+
+.header_container a {
     text-decoration: none;
-}
-
-.header_container  nav li {
-    list-style-type: none;
-}
-
-.header_container li {
-    margin-top: 40px;
-    position: relative;
-    left: 25%;
-}
-  
-.header_container a:visited {
     color: black;
 }
 
 .header_container a:hover {
-    color: blue;
+    color: rgb(109, 109, 235);
 }
 
-.header_container img {
-    position: absolute;
-    
+.header_container li {
+    list-style-type: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header_container span {
+    display: flex;
+    margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 30px;
 }
 
 .header_btn-connexion {
     display: flex;
     background-color: rgb(109, 109, 235);
-    border: 0;
-    padding: 10px;
+    border: none;
+    padding: 20px;
     border-radius: 100px;
-    position: relative;
-    float: right;
     margin-right: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
+
 }
 
 .header_btn-connexion a {
-    padding: 10px;
-    text-decoration: none;
     color: white;
+}
+
+.header_btn-connexion a:hover {
+    color: slategrey;
 }

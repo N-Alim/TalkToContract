@@ -20,6 +20,7 @@
     <header>
         <div class="header_container">
             <img src="{{asset("img/LogoTalkToContract.png")}}"></img>
+            <span>Talk To Contract</span>
             <nav class="header_nav-bar">
                 <ul>
                     <li>
@@ -42,12 +43,25 @@
                         <a href="{{ path("register") }}">Liste des offres</a>
                     </li>
                     {% endif %}
+
+                    {% if app.user %}
+                    {% if is_granted("ROLE_USER") %}
+                    <li>
+                        <a href="{{ path("homepage_client") }}">Mon compte</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="{{ path("logout") }}">Déconnexion</a>
+                    </li>
+                    {% else %}
+
+                    {% endif %}
                 </ul>
+                <button class="header_btn-connexion">
+                    <a href="{{ path("login") }}">Connexion</a>
+                </button>
             </nav>
         </div>
-        <button class="header_btn-connexion">
-            <a href="{{ path("login") }}">Connexion</a>
-        </button>
     </header>
 
     {% block body %}{% endblock %}
@@ -56,7 +70,7 @@
         <div class="footer_container">
             <p> © Talk To Contract, 2022.</p>
             <li>
-                <a>Mentions légales</a>
+                <a href="{{ path("register") }}">Mentions légales</a>
             </li>
         </div>
     </footer>
