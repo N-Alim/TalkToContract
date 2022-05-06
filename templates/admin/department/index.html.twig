@@ -8,22 +8,16 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Number</th>
-                <th>Created_at</th>
-                <th>Modified_at</th>
+                <th>Nom du département</th>
+                <th>Numéro du département</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for department in departments %}
             <tr>
-                <td>{{ department.id }}</td>
                 <td>{{ department.name }}</td>
                 <td>{{ department.number }}</td>
-                <td>{{ department.createdAt ? department.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ department.modifiedAt ? department.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('department_show_admin', {'id': department.id}) }}">show</a>
                     <a href="{{ path('department_edit_admin', {'id': department.id}) }}">edit</a>
