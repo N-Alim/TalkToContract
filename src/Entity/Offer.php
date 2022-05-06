@@ -58,6 +58,9 @@ class Offer
     #[ORM\Column(type: 'datetime_immutable')]
     private $modified_at;
 
+    #[ORM\ManyToOne(targetEntity: SubCategory::class)]
+    private $id_sub_category;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
@@ -248,5 +251,17 @@ class Offer
         // $data['department_id'] = $this->getDepartment()->getId();
 
         return $data;
+    }
+
+    public function getIdSubCategory(): ?SubCategory
+    {
+        return $this->id_sub_category;
+    }
+
+    public function setIdSubCategory(?SubCategory $id_sub_category): self
+    {
+        $this->id_sub_category = $id_sub_category;
+
+        return $this;
     }
 }
