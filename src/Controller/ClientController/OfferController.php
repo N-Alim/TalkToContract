@@ -36,7 +36,12 @@ class OfferController extends AbstractController
 
         return $this->json($offers);
     }
-
-    
-
+  
+    #[Route('/{id}', name: 'offer_show_client', methods: ['GET'])]
+    public function show(Offer $offer): Response
+    {
+        return $this->render('client/offer/show.html.twig', [
+            'offer' => $offer,
+        ]);
+    }
 }
