@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}TTC{% endblock %}</title>
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-    {% block stylesheets %}
-    {{ encore_entry_link_tags('client') }}
-    {% endblock %}
-
-    {% block javascripts %}
-    {{ encore_entry_script_tags('client') }}
-    {% endblock %}
-</head>
-
-<body>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}TTC{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('client') }}
+            
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('client') }}
+        {% endblock %}
+        
+    </head>
+    <body>
     <header>
         <div class="header_container">
             <img src="{{asset("img/LogoTalkToContract.png")}}"></img>
-            <span>Talk To Contract</span>
-            <nav class="header_nav-bar">
+            <span>Talk To Contract</span>            <nav class="header_nav-bar">
                 <ul>
                     <li>
                         <a href="{{ path("homepage_client") }}">Accueil</a>
                     </li>
+                    <div class="test" style='height: 20px; width: 40px; background-color: red;'>
+
+            </div>
                     {# <li>
                             <a href="{{ path("contact") }}">Contact</a>
                         </li> #}

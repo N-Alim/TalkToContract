@@ -1,0 +1,38 @@
+ {% extends "admin/admin.html.twig" %}
+ {% block title %}OffersType index{% endblock %}
+
+{% block body %}
+    <h1>OffersType index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Created_at</th>
+                <th>Modified_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offers_type in offers_types %}
+            <tr>
+                <td>{{ offers_type.id }}</td>
+                <td>{{ offers_type.label }}</td>
+                <td>{{ offers_type.createdAt ? offers_type.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offers_type.modifiedAt ? offers_type.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('offers_type_show_admin', {'id': offers_type.id}) }}">show</a>
+                    <a href="{{ path('offers_type_edit_admin', {'id': offers_type.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offers_type_new_admin') }}">Create new</a>
+{% endblock %}

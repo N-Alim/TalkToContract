@@ -9,7 +9,9 @@ use App\Service\ApiCallService;
 
 class DepartmentFixtures extends Fixture
 {
-    private ApiCallService $apiCaller ;
+    public const DEPARTMENT_REFERENCE = 'department';
+
+    private ApiCallService $apiCaller;
 
     public function __construct(ApiCallService $apiCaller)
     {
@@ -28,5 +30,7 @@ class DepartmentFixtures extends Fixture
         }
 
         $manager->flush();
+
+        $this->addReference(self::DEPARTMENT_REFERENCE, $department);
     }
 }

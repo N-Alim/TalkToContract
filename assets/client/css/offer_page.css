@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+
+    --white-primary-color: white;
+    --blue-primary-color: #478AC9;
+    --blue-secondary-color: blue;
+    --h1-size: 2.5em;
+    --h2-size: 1.8em;
+    --h3-size: 1.5em;
+    --h4-size: 1.2em;
+    --p-size: 1em;
+}
+
+main.offer_page {
+    background-color: var(--white-primary-color);
+    padding: 4%;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+main.offer_page h1 {
+    font-size: var(--h1-size);
+    margin-top: 2%;
+    margin-bottom: 1.%;
+}
+
+main.offer_page h2 {
+    font-size: var(--h2-size);
+    margin-bottom: .4%;
+}
+
+main.offer_page h3 {
+    font-size: var(--h3-size);
+}
+
+main.offer_page h4 {
+    font-size: var(--h4-size);
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+
+main.offer_page p {
+    font-size: var(--p-size);
+    margin-bottom: 2%;
+}
+
+main.offer_page a {
+    font-weight: bold;
+    color: black; 
+    background-color: var(--white-primary-color);
+    text-decoration: none;
+    padding: 8px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+main.offer_page a:hover {
+    color:var(--blue-secondary-color);
+}
+
+main.offer_page span.urlArrows {
+    font-size: calc(.8 * var(--p-size));
+}
+main.offer_page div.data-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+main.offer_page div.mainData {
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+main.offer_page div.tagsMain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+main.offer_page span.tag {
+    background-color: var(--blue-primary-color);
+    padding: 2px 7px 2px 7px;
+    border-radius: 15%;
+}
+
+main.offer_page sidebar {
+    background-color: var(--blue-primary-color);
+    padding: 2% 4%;
+    border-radius: 1%;
+    width: 100%;
+}
+
+main.offer_page sidebar.frame {
+    -webkit-box-shadow: 0px 3px 15px 1px rgba(0, 0, 0, 0.76);
+    box-shadow: 0px 3px 15px 1px rgba(0, 0, 0, 0.76);
+    margin: 5px;
+}
+
+@media screen and (min-width: 1024px) 
+{
+    main.offer_page {
+        padding: 2%;
+    }
+
+    main.offer_page div.data-container {
+        flex-direction: row;
+    }
+ 
+    main.offer_page div.mainData {
+        width: 65%;
+        margin-bottom: 0;
+    }
+
+    main.offer_page sidebar {
+        width: 35%;
+        padding: 0 1.5%;
+    }
+}

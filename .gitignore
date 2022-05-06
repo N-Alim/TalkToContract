@@ -15,3 +15,7 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+###> dépendances pour sb admin 2 ###
+pck
+###< dépendances pour sb admin 2 ###
