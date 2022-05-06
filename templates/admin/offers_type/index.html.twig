@@ -7,17 +7,15 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Label</th>
-                <th>Created_at</th>
-                <th>Modified_at</th>
+                <th>Créer le</th>
+                <th>Modifié le</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for offers_type in offers_types %}
             <tr>
-                <td>{{ offers_type.id }}</td>
                 <td>{{ offers_type.label }}</td>
                 <td>{{ offers_type.createdAt ? offers_type.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ offers_type.modifiedAt ? offers_type.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
