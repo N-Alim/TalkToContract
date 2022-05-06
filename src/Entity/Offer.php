@@ -61,6 +61,9 @@ class Offer
     #[ORM\ManyToOne(targetEntity: SubCategory::class)]
     private $id_sub_category;
 
+    #[ORM\ManyToOne(targetEntity: user::class)]
+    private $recruiter;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
@@ -261,6 +264,18 @@ class Offer
     public function setIdSubCategory(?SubCategory $id_sub_category): self
     {
         $this->id_sub_category = $id_sub_category;
+
+        return $this;
+    }
+
+    public function getRecruiter(): ?user
+    {
+        return $this->recruiter;
+    }
+
+    public function setRecruiter(?user $recruiter): self
+    {
+        $this->recruiter = $recruiter;
 
         return $this;
     }
