@@ -10,11 +10,18 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('client') }}
+            
         {% endblock %}
-
+{# <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css"> #}
         {% block javascripts %}
             {{ encore_entry_script_tags('client') }}
+            {# Importation des Url des range slider #}
+   
+    {# Importation du fichier javascript #}
         {% endblock %}
+{# //  <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
+//     <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script> #}
+
     </head>
     <body>
         <header>
@@ -23,6 +30,9 @@
                     <li>
                         <a href="{{ path("homepage_client") }}">Accueil</a>
                     </li>
+                    <div class="test" style='height: 20px; width: 40px; background-color: red;'>
+
+            </div>
                     {# <li>
                         <a href="{{ path("contact") }}">Contact</a>
                     </li> #}
