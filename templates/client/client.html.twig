@@ -12,20 +12,16 @@
             {{ encore_entry_link_tags('client') }}
             
         {% endblock %}
-{# <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css"> #}
         {% block javascripts %}
             {{ encore_entry_script_tags('client') }}
-            {# Importation des Url des range slider #}
-   
-    {# Importation du fichier javascript #}
         {% endblock %}
-{# //  <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
-//     <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script> #}
-
+        
     </head>
     <body>
-        <header>
-            <nav>
+    <header>
+        <div class="header_container">
+            <img src="{{asset("img/LogoTalkToContract.png")}}"></img>
+            <span>Talk To Contract</span>            <nav class="header_nav-bar">
                 <ul>
                     <li>
                         <a href="{{ path("homepage_client") }}">Accueil</a>
@@ -34,28 +30,53 @@
 
             </div>
                     {# <li>
-                        <a href="{{ path("contact") }}">Contact</a>
-                    </li> #}
+                            <a href="{{ path("contact") }}">Contact</a>
+                        </li> #}
                     {% if app.user %}
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <li>
-                                <a href="{{ path("homepage_admin") }}">Page admin</a>
-                            </li>
-                        {% endif %}
-                        <li>
-                            <a href="{{ path("logout") }}">Déconnexion</a>
-                        </li>                        
+                    {% if is_granted("ROLE_ADMIN") %}
+                    <li>
+                        <a href="{{ path("homepage_admin") }}">Page admin</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="{{ path("logout") }}">Déconnexion</a>
+                    </li>
                     {% else %}
-                        <li>
-                            <a href="{{ path("register") }}">Inscription</a>
-                        </li>
-                        <li>
-                            <a href="{{ path("login") }}">Connexion</a>
-                        </li>
+                    <li>
+                        <a href="{{ path("register") }}">Liste des offres</a>
+                    </li>
+                    {% endif %}
+
+                    {% if app.user %}
+                    {% if is_granted("ROLE_USER") %}
+                    <li>
+                        <a href="{{ path("homepage_client") }}">Mon compte</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="{{ path("logout") }}">Déconnexion</a>
+                    </li>
+                    {% else %}
+
                     {% endif %}
                 </ul>
+                <button class="header_btn-connexion">
+                    <a href="{{ path("login") }}">Connexion</a>
+                </button>
             </nav>
-        </header>
-        {% block body %}{% endblock %}
-    </body>
+        </div>
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <footer>
+        <div class="footer_container">
+            <p> © Talk To Contract, 2022.</p>
+            <li>
+                <a href="{{ path("register") }}">Mentions légales</a>
+            </li>
+        </div>
+    </footer>
+</body>
+
 </html>

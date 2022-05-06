@@ -27,6 +27,17 @@ class UserFixtures extends Fixture
         
         $manager->persist($user1);
 
+        // Compte USER
+        $user3 = (new User())
+            ->setEmail("user@gmail.com")
+            ->setRoles(array("ROLE_USER"));
+            
+        $password = $this->hasher->hashPassword($user3, 'Jello');
+        $user3->setPassword($password);
+        
+        $manager->persist($user1);
+        // Compte USER
+
         // Compte Antoine => Don't Touch
         $user2 = (new User())
             ->setEmail("quidelantoine@gmail.com")
