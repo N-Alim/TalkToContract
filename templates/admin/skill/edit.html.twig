@@ -3,11 +3,11 @@
 {% block title %} Edit Skill {% endblock %}
 
 {% block body %}
-    <h1>Edit Skill</h1>
+    <h1>Edit compétence</h1>
 
     {{ include('/admin/skill/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('skill_index_admin') }}">back to list</a>
+    <a href="{{ path('skill_index_admin') }}">retour à la liste</a>
 
     {{ include('/admin/skill/_delete_form.html.twig') }}
 {% endblock %}
