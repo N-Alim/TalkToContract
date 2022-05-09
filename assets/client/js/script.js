@@ -31,7 +31,7 @@ function getOffers(){
 
 }
 
-document.querySelector('div.test').addEventListener('click',  getOffers)
+// document.querySelector('div.test').addEventListener('click',  getOffers)
 // document.querySelector('div.test').addEventListener('click',  getOffers)
 
 // POP UP
@@ -40,4 +40,4 @@ function popupFunction() {
     var popup = document.getElementById("myPopUp");
     popup.classList.toggle("show");
 }
-document.querySelector('div.popup').addEventListener('click', popupFunction);
+// document.querySelector('div.popup').addEventListener('click', popupFunction);
