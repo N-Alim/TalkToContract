@@ -125,24 +125,24 @@ class OfferRepository extends ServiceEntityRepository
 
         // À décommenter quand la table sub_category est mis en place et liée à la table offer
 
-        // if ($sub_category_id !== "")
-        // {
-        //     $queryBuilder->andWhere('o.sub_category = ?7')
-        //     ->setParameter(7, intval($sub_category_id));
-        // }
+        if ($sub_category_id !== "")
+        {
+            $queryBuilder->andWhere('o.sub_category = ?7')
+            ->setParameter(7, intval($sub_category_id));
+        }
 
-        // else
-        // {
-        //     if ($category_id !== "")
-        //     {
-        //         $subCategoriesId = $this->categoryRepository->getSubCategoriesIdArray(intval($category_id));
+        else
+        {
+            if ($category_id !== "")
+            {
+                $subCategoriesId = $this->categoryRepository->getSubCategoriesIdArray(intval($category_id));
 
-        //         $queryBuilder->andWhere('o.sub_category IN (?8)')
-        //         ->setParameter(8, 
-        //         $subCategoriesId, 
-        //             \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
-        //     }
-        // }
+                $queryBuilder->andWhere('o.sub_category IN (?8)')
+                ->setParameter(8, 
+                $subCategoriesId, 
+                    \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
+            }
+        }
 
         if ($offers_type_id !== "")
         {
