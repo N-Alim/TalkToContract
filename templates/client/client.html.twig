@@ -10,7 +10,7 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('client') }}
-            
+        <link href="{{ asset("administration/pck/fontawesome-free/css/all.min.css")}}" rel="stylesheet" type="text/css">
         {% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('client') }}
@@ -18,65 +18,95 @@
         
     </head>
     <body>
-    <header>
-        <div class="header_container">
-            <img src="{{asset("img/LogoTalkToContract.png")}}"></img>
-            <span>Talk To Contract</span>            <nav class="header_nav-bar">
+        <header>
+            <div class="logo">
+                <img src="{{asset("img/LogoTalkToContract.png")}}"></img>
+                <p>Talk To Contract</p>
+            </div>
+            <nav>
                 <ul>
                     <li>
                         <a href="{{ path("homepage_client") }}">Accueil</a>
                     </li>
-                    <div class="test" style='height: 20px; width: 40px; background-color: red;'>
+                    <li>
+                        <a href="{{ path("offer_index_client") }}">Liste des offres</a>
+                    </li>
 
-            </div>
-                    {# <li>
-                            <a href="{{ path("contact") }}">Contact</a>
+                    {% if is_granted("ROLE_RECRUITER") %}
+                        {# <li>
+                            <a href="{{ path("offer_new_client") }}">Créer une offre</a>
                         </li> #}
-                    {% if app.user %}
+                    {% endif %}
+
                     {% if is_granted("ROLE_ADMIN") %}
-                    <li>
-                        <a href="{{ path("homepage_admin") }}">Page admin</a>
-                    </li>
-                    {% endif %}
-                    <li>
-                        <a href="{{ path("logout") }}">Déconnexion</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{{ path("register") }}">Liste des offres</a>
-                    </li>
-                    {% endif %}
-
-                    {% if app.user %}
-                    {% if is_granted("ROLE_USER") %}
-                    <li>
-                        <a href="{{ path("homepage_client") }}">Mon compte</a>
-                    </li>
-                    {% endif %}
-                    <li>
-                        <a href="{{ path("logout") }}">Déconnexion</a>
-                    </li>
-                    {% else %}
-
+                        <li>
+                            <a href="{{ path("homepage_admin") }}">Page admin</a>
+                        </li>
                     {% endif %}
                 </ul>
-                <button class="header_btn-connexion">
-                    <a href="{{ path("login") }}">Connexion</a>
-                </button>
-            </nav>
-        </div>
-    </header>
+                </nav>
+                <div class="account-buttons">
+                    {% if app.user %}
+                        {# <a href="{{ path("account_client") }}">
+                                <i class="fas fa-key"></i>
+                                Mon compte
+                            </a> #}
 
-    {% block body %}{% endblock %}
+                            <a href="{{ path("logout") }}">
+                                Déconnexion
+                            </a>
+                    {% else %}
+                            <a href="{{ path("login") }}">
+                                Connexion
+                            </a>
 
-    <footer>
-        <div class="footer_container">
-            <p> © Talk To Contract, 2022.</p>
-            <li>
-                <a href="{{ path("register") }}">Mentions légales</a>
-            </li>
-        </div>
-    </footer>
-</body>
+                            <a href="{{ path("register") }}">
+                                Inscription
+                            </a>
+                    {% endif %}
+                </div>
+                <div class="burger-button">
+                    <span class="burger-top"></span>
+                    <span class="burger-middle"></span>
+                    <span class="burger-bottom"></span>
+                </div>
+                <div class="burger-menu">
+                    <a href="{{ path("homepage_client") }}">Accueil</a>
+                    <a href="{{ path("offer_index_client") }}">Liste des offres</a>
+                
+                    {% if is_granted("ROLE_RECRUITER") %}
+                        {#  <a href="{{ path("offer_new_client") }}">Créer une offre</a> #}
+                    {% endif %}
+                    
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a href="{{ path("homepage_admin") }}">Page admin</a>
+                    {% endif %}
+                    {% if app.user %}
+                        {#  <a href="{{ path("account_client") }}">
+                            Mon compte
+                        </a>  #}
+                        <a href="{{ path("logout") }}">
+                            Déconnexion
+                        </a>
+                    {% else %}
+                        <a href="{{ path("login") }}">
+                            Connexion
+                        </a>
+
+                        <a href="{{ path("register") }}">
+                            Inscription
+                        </a> 
+                    {% endif %}
+            </div>
+        </header>
+        
+        {% block body %}{% endblock %}
+
+        <footer>
+            <p> © Talk To Contract, {{ "now"|date("Y") }}</p>
+            <p>Contact Us : <b>talk.to.contract@gmail.com</b></p>
+            <a href="{{ path("legal_disclaimer_client") }}">Mentions légales</a>
+        </footer>
+    </body>
 
 </html>
