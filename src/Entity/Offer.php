@@ -11,7 +11,7 @@ use Doctrine\Persistence\Event\LifecycleEventArgs;
 class Offer
 {
 
-    // Manque recruiter, sub-category, assoc avec skill
+    // Manque Assoc avec skill
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
