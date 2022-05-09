@@ -17,7 +17,7 @@ class SubCategory
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-     #[ORM\ManyToOne(targetEntity: category::class, inversedBy: 'sub_categories')]
+     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'sub_categories')]
     #[ORM\JoinColumn(nullable: false)]
     private $category;
 
