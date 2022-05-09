@@ -19,7 +19,7 @@ class SubCategory
 
      #[ORM\ManyToOne(targetEntity: category::class, inversedBy: 'sub_categories')]
     #[ORM\JoinColumn(nullable: false)]
-    private $id_category;
+    private $category;
 
     #[ORM\Column(type: 'datetime_immutable')]
     private $created_at;
@@ -81,14 +81,14 @@ class SubCategory
         return $this;
     }
 
-    public function getIdCategory(): ?category
+    public function getCategory(): ?category
     {
-        return $this->id_category;
+        return $this->category;
     }
 
-    public function setIdCategory(?category $id_category): self
+    public function setCategory(?category $category): self
     {
-        $this->id_category = $id_category;
+        $this->category = $category;
 
         return $this;
     }
