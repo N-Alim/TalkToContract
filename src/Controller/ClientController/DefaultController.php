@@ -15,4 +15,12 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
+
+    #[Route('/legal_disclaimer', name: 'legal_disclaimer_client')]
+    public function legalDisclaimer(): Response
+    {
+        return $this->render('client/client.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
+    }
 }
