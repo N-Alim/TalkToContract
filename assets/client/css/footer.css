@@ -12,11 +12,12 @@ footer {
     bottom: 0;
     font-size: calc(1.2 * var(--p-size));
     gap: 2%;
+    color: white
 }
 
 footer a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 footer p {

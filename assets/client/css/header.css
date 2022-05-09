@@ -5,6 +5,7 @@ header {
     position: sticky;
     justify-content: space-between;
     top: 0;
+    color: white;
 }
 
 header div.logo {
@@ -32,7 +33,7 @@ header ul {
 
 header a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 header a:hover {
