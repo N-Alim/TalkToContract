@@ -3,14 +3,12 @@
 {% block title %}Offer index {% endblock %}
 
 {% block body %}
-    <h1>Offer index</h1>
+    <h1>Index des offres</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Nom du métier</th>
-                {# <th>Description</th> #}
-                <th>Tâches</th>
                 <th>Nombre d'heures/semaine</th>
                 <th>Ville</th>
                 <th>Adresse</th>
@@ -19,15 +17,13 @@
                 <th>Active</th>
                 <th>Créer le</th>
                 <th>Modifier le</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for offer in offers %}
             <tr>
                 <td>{{ offer.jobName }}</td>
-                {# <td>{{ offer.description }}</td> #}
-                <td>{{ offer.tasks }}</td>
                 <td>{{ offer.weekHoursNumber }}</td>
                 <td>{{ offer.town }}</td>
                 <td>{{ offer.address }}</td>

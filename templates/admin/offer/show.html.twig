@@ -48,17 +48,17 @@
                 <td>{{ offer.active ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
-                <th>Créer le</th>
+                <th>Créé le</th>
                 <td>{{ offer.createdAt ? offer.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Modifier le</th>
+                <th>Modifié le</th>
                 <td>{{ offer.modifiedAt ? offer.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('offer_index_admin') }}">retour à la liste</a>
+    <a href="{{ path('offer_index_admin') }}">Retour à la liste</a>
 
     {# <a href="{{ path('offer_edit_admin', {'id': offer.id}) }}">edit</a> #}
 

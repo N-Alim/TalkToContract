@@ -1,13 +1,13 @@
 {% extends 'admin/admin.html.twig' %}
 
-{% block title %}2dit département{% endblock %}
+{% block title %}Edit département{% endblock %}
 
 {% block body %}
-    <h1>Edit département</h1>
+    <h1>Modifié département</h1>
 
-    {{ include('admin/department/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/department/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('department_index_admin') }}">retour à la liste</a>
+    <a href="{{ path('department_index_admin') }}">Retour à la liste</a>
 
     {{ include('admin/department/_delete_form.html.twig') }}
 {% endblock %}
