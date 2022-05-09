@@ -3,33 +3,27 @@
 {% block title %}Offer index {% endblock %}
 
 {% block body %}
-    <h1>Offer index</h1>
+    <h1>Index des offres</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Job_name</th>
-                <th>Description</th>
-                <th>Tasks</th>
-                <th>Week_hours_number</th>
-                <th>Town</th>
-                <th>Address</th>
-                <th>Company</th>
-                <th>Experience</th>
+                <th>Nom du métier</th>
+                <th>Nombre d'heures/semaine</th>
+                <th>Ville</th>
+                <th>Adresse</th>
+                <th>Entreprise</th>
+                <th>Expérience</th>
                 <th>Active</th>
-                <th>Created_at</th>
-                <th>Modified_at</th>
-                <th>actions</th>
+                <th>Créé le</th>
+                <th>Modifié le</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for offer in offers %}
             <tr>
-                <td>{{ offer.id }}</td>
                 <td>{{ offer.jobName }}</td>
-                <td>{{ offer.description }}</td>
-                <td>{{ offer.tasks }}</td>
                 <td>{{ offer.weekHoursNumber }}</td>
                 <td>{{ offer.town }}</td>
                 <td>{{ offer.address }}</td>
@@ -39,7 +33,7 @@
                 <td>{{ offer.createdAt ? offer.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ offer.modifiedAt ? offer.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('offer_show_admin', {'id': offer.id}) }}">show</a>
+                    <a href="{{ path('offer_show_admin', {'id': offer.id}) }}">Afficher</a>
                     {# <a href="{{ path('offer_edit_admin', {'id': offer.id}) }}">edit</a> #}
                 </td>
             </tr>

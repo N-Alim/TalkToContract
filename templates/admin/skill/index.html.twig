@@ -3,28 +3,26 @@
 {% block title %}Skill index {% endblock %}
 
 {% block body %}
-    <h1>Skill index</h1>
+    <h1>Index des compétences</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Modified_at</th>
-                <th>Created_at</th>
-                <th>actions</th>
+                <th>Compétences</th>
+                {# <th>Modifié le</th> #}
+                {# <th>Créé le</th> #}
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for skill in skill %}
             <tr>
-                <td>{{ skill.id }}</td>
                 <td>{{ skill.name }}</td>
-                <td>{{ skill.modifiedAt ? skill.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ skill.createdAt ? skill.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ skill.modifiedAt ? skill.modifiedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                {# <td>{{ skill.createdAt ? skill.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('skill_show_admin', {'id': skill.id}) }}">show</a>
-                    <a href="{{ path('skill_edit_admin', {'id': skill.id}) }}">edit</a>
+                    <a href="{{ path('skill_show_admin', {'id': skill.id}) }}">Afficher</a>
+                    <a href="{{ path('skill_edit_admin', {'id': skill.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -35,7 +33,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('skill_new_admin') }}">Create new</a>
+    <a href="{{ path('skill_new_admin') }}">Nouveau</a>
     {# <div data-udata-dataset="59315a2c88ee385fac21149f">cat</div>
     <script data-udata="https://www.data.gouv.fr/" src="https://static.data.gouv.fr/static/oembed.js" async defer></script> #}
 {% endblock %}
