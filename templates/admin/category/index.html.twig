@@ -21,8 +21,8 @@
                 <td>{{ category.modifiedAt ? category.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('category_show_admin', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('category_edit_admin', {'id': category.id}) }}">edit</a>
+                    <a href="{{ path('category_show_admin', {'id': category.id}) }}">Afficher</a>
+                    <a href="{{ path('category_edit_admin', {'id': category.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -33,7 +33,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('category_new_admin') }}">Create new</a>
+    <a href="{{ path('category_new_admin') }}">Nouveau</a>
     {# <div data-udata-dataset="59315a2c88ee385fac21149f">cat</div>
     <script data-udata="https://www.data.gouv.fr/" src="https://static.data.gouv.fr/static/oembed.js" async defer></script> #}
 {% endblock %}

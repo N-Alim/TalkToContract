@@ -9,7 +9,7 @@
             <tr>
                 <th>Label</th>
                 <th>Créer le</th>
-                <th>Modifié le</th>
+                <th>Modifier le</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,8 +20,8 @@
                 <td>{{ offers_type.createdAt ? offers_type.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ offers_type.modifiedAt ? offers_type.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('offers_type_show_admin', {'id': offers_type.id}) }}">show</a>
-                    <a href="{{ path('offers_type_edit_admin', {'id': offers_type.id}) }}">edit</a>
+                    <a href="{{ path('offers_type_show_admin', {'id': offers_type.id}) }}">Afficher</a>
+                    <a href="{{ path('offers_type_edit_admin', {'id': offers_type.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -32,5 +32,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('offers_type_new_admin') }}">Create new</a>
+    <a href="{{ path('offers_type_new_admin') }}">Nouveau</a>
 {% endblock %}

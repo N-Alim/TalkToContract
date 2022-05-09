@@ -12,19 +12,19 @@
                 <td>{{ department.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ department.name }}</td>
             </tr>
             <tr>
-                <th>Number</th>
+                <th>Numéro du département</th>
                 <td>{{ department.number }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
+                <th>Créer le</th>
                 <td>{{ department.createdAt ? department.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Modified_at</th>
+                <th>Modifier le</th>
                 <td>{{ department.modifiedAt ? department.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>

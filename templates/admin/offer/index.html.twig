@@ -18,7 +18,7 @@
                 <th>Expérience</th>
                 <th>Active</th>
                 <th>Créer le</th>
-                <th>Modifié le</th>
+                <th>Modifier le</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -37,7 +37,7 @@
                 <td>{{ offer.createdAt ? offer.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ offer.modifiedAt ? offer.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('offer_show_admin', {'id': offer.id}) }}">show</a>
+                    <a href="{{ path('offer_show_admin', {'id': offer.id}) }}">Afficher</a>
                     {# <a href="{{ path('offer_edit_admin', {'id': offer.id}) }}">edit</a> #}
                 </td>
             </tr>
