@@ -13,10 +13,19 @@ class OffersTypeFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $offersType = new OffersType();
-        $offersType->setLabel('offersType');
-        // $product = new Product();
+        $offersType->setLabel('Distanciel');
 
         $manager->persist($offersType);
+
+        $offersType2 = new OffersType();
+        $offersType2->setLabel('Semi-distanciel');
+
+        $manager->persist($offersType2)
+
+        $offersType3 = new OffersType();
+        $offersType3->setLabel('Présentiel');
+
+        $manager->persist($offersType3)
 
         $manager->flush();
 
