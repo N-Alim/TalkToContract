@@ -11,7 +11,7 @@ use Doctrine\Persistence\Event\LifecycleEventArgs;
 class Offer
 {
 
-    // Manque recruiter, sub-category, assoc avec skill
+    // Manque Assoc avec skill
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -57,6 +57,12 @@ class Offer
 
     #[ORM\Column(type: 'datetime_immutable')]
     private $modified_at;
+
+    #[ORM\ManyToOne(targetEntity: SubCategory::class)]
+    private $id_sub_category;
+
+    #[ORM\ManyToOne(targetEntity: user::class)]
+    private $recruiter;
 
     public function __construct()
     {
@@ -248,5 +254,29 @@ class Offer
         // $data['department_id'] = $this->getDepartment()->getId();
 
         return $data;
+    }
+
+    public function getIdSubCategory(): ?SubCategory
+    {
+        return $this->id_sub_category;
+    }
+
+    public function setIdSubCategory(?SubCategory $id_sub_category): self
+    {
+        $this->id_sub_category = $id_sub_category;
+
+        return $this;
+    }
+
+    public function getRecruiter(): ?user
+    {
+        return $this->recruiter;
+    }
+
+    public function setRecruiter(?user $recruiter): self
+    {
+        $this->recruiter = $recruiter;
+
+        return $this;
     }
 }
