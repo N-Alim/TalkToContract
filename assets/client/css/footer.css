@@ -2,7 +2,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 10vh;
+    min-height: 12vh;
     padding: 2%;
     text-align: center;
     background-color: var(--blue-secondary-color);
