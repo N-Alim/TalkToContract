@@ -61,7 +61,7 @@ class Offer
     #[ORM\ManyToOne(targetEntity: SubCategory::class)]
     private $id_sub_category;
 
-    #[ORM\ManyToOne(targetEntity: user::class)]
+    #[ORM\ManyToOne(targetEntity: User::class)]
     private $recruiter;
 
     public function __construct()
