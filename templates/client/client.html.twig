@@ -20,7 +20,7 @@
     <body>
         <header>
             <div class="logo">
-                <img src="{{asset("img/LogoTalkToContract.png")}}"></img>
+                <img src="{{asset("img/TTC_logo.png")}}"></img>
                 <p>Talk To Contract</p>
             </div>
             <nav>
@@ -100,7 +100,27 @@
             </div>
         </header>
         
-        {% block body %}{% endblock %}
+        {% block body %}
+            <main class="homepage flex-col-center">
+                <div class="homepage-content">
+                    <h1>Trouvez un stage facilement</h1>
+                    <form method="GET" action="{{ path("offer_index_client") }}">
+                        <input type="text" id="job-name" name="job-name" placeholder="Nom du poste">
+                        <input type="text" id="town" name="town" placeholder="Ville">
+                        <button type="submit" value="Search">
+                            <span>Rechercher</span>
+                            <i class="fas faw fa-search"></i>
+                        </button>
+                    </form>
+                    {% if not app.user %}
+                        <div class="not-connected-warning">
+                            <i class="fas faw fa-exclamation-circle"></i>
+                            <h2>Connectez-vous pour avoir accès à une messagerie et proposer vos offres !</h2>
+                        </div>
+                    {% endif %}
+                </div>
+            </main>
+        {% endblock %}
 
         <footer>
             <p> © Talk To Contract, {{ "now"|date("Y") }}</p>

@@ -1,0 +1,134 @@
+main.homepage {
+    width: 100%;
+    background-image: url("../img/homepage-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main.homepage div.homepage-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-primary-color);
+    padding: 8px 12px;
+    gap: 2em;
+}
+
+main.homepage h1{
+    font-size: var(--h1-size);
+    background-color: var(--blue-primary-color-faded);
+    text-align: center;
+    width:fit-content;
+    border-radius: 10px;
+    padding: 4px 12px;
+}
+
+main.homepage form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    background-color: var(--blue-primary-color-faded);
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+main.homepage form input{
+    text-align: center;
+    font-size: var(--h4-size);
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+}
+
+main.homepage button{
+    text-align: center;
+    font-size: var(--h4-size);
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    word-spacing: 1em;
+}
+
+main.homepage div.not-connected-warning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+main.homepage div.not-connected-warning i {
+    color: var(--blue-primary-color-faded);
+    background-color: var(--white-primary-color); /*À voir avec antoine*/
+    border-radius: 50%;
+    font-size: calc(1.8 * var(--h2-size));
+}
+
+main.homepage h2 {
+    background-color: var(--blue-primary-color-faded);
+    font-size: var(--h2-size);
+    padding: 4px 8px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) 
+{
+    main.homepage h1{
+        font-size: calc(1.5 * var(--h1-size));
+    }
+}
+
+@media screen and (min-width: 1024px) 
+{
+    main.homepage div.homepage-content {
+        width: 55%;
+        gap: 3em;
+    }
+
+    main.homepage form {
+        flex-direction: row;
+    }
+
+    main.homepage h1{
+        font-size: calc(2 * var(--h1-size));
+    }
+
+    main.homepage button span{
+        text-align: center;
+        border-radius: 10px;
+        border: none;
+        width: 100%;
+    }
+
+    main.homepage form input{
+        text-align: center;
+        /* width: 400px; */
+        border-radius: 10px;
+        border: none;
+    }
+
+    main.homepage div.not-connected-warning {
+        flex-direction: row;
+        gap: 2em;
+    }
+
+    main.homepage div.not-connected-warning i {
+        font-size: calc(1.5 * 1.8 * var(--h2-size));
+    }
+
+    main.homepage h2 {
+        font-size: calc(1.2 * var(--h2-size));
+    }
+}
+
