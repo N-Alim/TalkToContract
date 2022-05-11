@@ -1,20 +1,36 @@
-<!DOCTYPE html>
-
-<title>Hello OffersSkillsAssocController!</title>
+{% extends "admin/admin.html.twig" %}
+{% block title %}OffersSkillsAssoc index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>OffersSkillsAssoc index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Created_at</th>
+                <th>Modified_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offers_skills_assoc in offers_skills_assocs %}
+            <tr>
+                <td>{{ offers_skills_assoc.id }}</td>
+                <td>{{ offers_skills_assoc.createdAt ? offers_skills_assoc.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offers_skills_assoc.modifiedAt ? offers_skills_assoc.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('offers_skills_assoc_show_admin', {'id': offers_skills_assoc.id}) }}">show</a>
+                    <a href="{{ path('offers_skills_assoc_edit_admin', {'id': offers_skills_assoc.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/TalkToContract/src/Controller/OffersSkillsAssocController.php'|file_link(0) }}">src/Controller/OffersSkillsAssocController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/TalkToContract/templates/offers_skills_assoc/index.html.twig'|file_link(0) }}">templates/offers_skills_assoc/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <a href="{{ path('offers_skills_assoc_new_admin') }}">Create new</a>
 {% endblock %}

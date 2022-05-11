@@ -1,0 +1,29 @@
+{% extends "admin/admin.html.twig" %}
+{% block title %}OffersSkillsAssoc{% endblock %}
+
+{% block body %}
+    <h1>OffersSkillsAssoc</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ offers_skills_assoc.id }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ offers_skills_assoc.createdAt ? offers_skills_assoc.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Modified_at</th>
+                <td>{{ offers_skills_assoc.modifiedAt ? offers_skills_assoc.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('offers_skills_assoc_index_admin') }}">back to list</a>
+
+    <a href="{{ path('offers_skills_assoc_edit_admin', {'id': offers_skills_assoc.id}) }}">edit</a>
+
+    {{ include('admin/offers_skills_assoc/_delete_form.html.twig') }}
+{% endblock %}
