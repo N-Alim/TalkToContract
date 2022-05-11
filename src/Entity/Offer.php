@@ -64,6 +64,10 @@ class Offer
     #[ORM\ManyToOne(targetEntity: user::class)]
     private $recruiter;
 
+    #[ORM\ManyToOne(targetEntity: OffersSkillsAssoc::class, inversedBy: 'Skills')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $SkillsToOfferAssoc;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
@@ -276,6 +280,18 @@ class Offer
     public function setRecruiter(?user $recruiter): self
     {
         $this->recruiter = $recruiter;
+
+        return $this;
+    }
+
+    public function getSkillsToOfferAssoc(): ?OffersSkillsAssoc
+    {
+        return $this->SkillsToOfferAssoc;
+    }
+
+    public function setSkillsToOfferAssoc(?OffersSkillsAssoc $SkillsToOfferAssoc): self
+    {
+        $this->SkillsToOfferAssoc = $SkillsToOfferAssoc;
 
         return $this;
     }

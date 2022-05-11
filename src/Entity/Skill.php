@@ -23,6 +23,10 @@ class Skill
     #[ORM\Column(type: 'datetime_immutable')]
     private $created_at;
 
+    #[ORM\ManyToOne(targetEntity: OffersSkillsAssoc::class, inversedBy: 'Offer')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $AssocOffersSkills;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
@@ -72,6 +76,18 @@ class Skill
     public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getAssocOffersSkills(): ?OffersSkillsAssoc
+    {
+        return $this->AssocOffersSkills;
+    }
+
+    public function setAssocOffersSkills(?OffersSkillsAssoc $AssocOffersSkills): self
+    {
+        $this->AssocOffersSkills = $AssocOffersSkills;
 
         return $this;
     }
