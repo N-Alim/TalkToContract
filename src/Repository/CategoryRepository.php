@@ -78,17 +78,17 @@ class CategoryRepository extends ServiceEntityRepository
 
     // À décommenter quand la table sub_category est mis en place et liée à la table category
 
-    // public function getSubCategoriesIdArray($categoryId)
-    // {
-    //     $subCategories = $this->categoryRepository->find($categoryId)->getSubCategories();
+    public function getSubCategoriesIdArray($categoryId)
+    {
+        $subCategories = $this->categoryRepository->find($categoryId)->getSubCategories();
 
-    //     $subCategoriesId = array();
+        $subCategoriesId = array();
 
-    //     foreach ($subCategories as $subCategory) 
-    //     {   
-    //         array_push($subCategoriesId, $subCategory->getId());
-    //     }
+        foreach ($subCategories as $subCategory) 
+        {   
+            array_push($subCategoriesId, $subCategory->getId());
+        }
 
-    //     return $subCategoriesId;
-    // }
+        return $subCategoriesId;
+    }
 }

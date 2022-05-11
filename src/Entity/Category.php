@@ -94,7 +94,7 @@ class Category
     {
         if (!$this->sub_categories->contains($subCategory)) {
             $this->sub_categories[] = $subCategory;
-            $subCategory->setIdCategory($this);
+            $subCategory->setCategory($this);
         }
 
         return $this;
@@ -104,8 +104,8 @@ class Category
     {
         if ($this->sub_categories->removeElement($subCategory)) {
             // set the owning side to null (unless already changed)
-            if ($subCategory->getIdCategory() === $this) {
-                $subCategory->setIdCategory(null);
+            if ($subCategory->getCategory() === $this) {
+                $subCategory->setCategory(null);
             }
         }
 

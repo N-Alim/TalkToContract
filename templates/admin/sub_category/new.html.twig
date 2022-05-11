@@ -1,0 +1,10 @@
+{% extends "admin/admin.html.twig" %} 
+{% block title %}New SubCategory{% endblock %}
+
+{% block body %}
+    <h1>Create new SubCategory</h1>
+
+    {{ include('admin/sub_category/_form.html.twig') }}
+
+    <a href="{{ path('sub_category_index_admin') }}">back to list</a>
+{% endblock %}
