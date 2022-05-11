@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SkillRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SkillRepository::class)]
@@ -23,14 +25,14 @@ class Skill
     #[ORM\Column(type: 'datetime_immutable')]
     private $created_at;
 
-    #[ORM\ManyToOne(targetEntity: OffersSkillsAssoc::class, inversedBy: 'Offer')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $AssocOffersSkills;
+    #[ORM\ManyToMany(targetEntity: Offer::class, mappedBy: 'skills')]
+    private $offers;
 
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
         $this->setModifiedAt(new \DateTimeImmutable());
+        $this->offers = new ArrayCollection();
     }
 
     #[ORM\PreUpdate]
@@ -80,15 +82,31 @@ class Skill
         return $this;
     }
 
-    public function getAssocOffersSkills(): ?OffersSkillsAssoc
+    /**
+     * @return Collection<int, Offer>
+     */
+    public function getOffers(): Collection
     {
-        return $this->AssocOffersSkills;
+        return $this->offers;
     }
 
-    public function setAssocOffersSkills(?OffersSkillsAssoc $AssocOffersSkills): self
+    public function addOffer(Offer $offer): self
     {
-        $this->AssocOffersSkills = $AssocOffersSkills;
+        if (!$this->offers->contains($offer)) {
+            $this->offers[] = $offer;
+            $offer->addSkill($this);
+        }
 
         return $this;
     }
+
+    public function removeOffer(Offer $offer): self
+    {
+        if ($this->offers->removeElement($offer)) {
+            $offer->removeSkill($this);
+        }
+
+        return $this;
+    }
+
 }
