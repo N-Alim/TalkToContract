@@ -11,7 +11,7 @@ header {
 header div.logo {
     display: flex;
     align-items: center;
-    gap: 10%
+    gap: 1em
 }
 
 header p {
