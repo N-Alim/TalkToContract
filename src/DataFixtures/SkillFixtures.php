@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Skill;
 use App\Service\ApiCallService;
+use App\DataFixtures\SubCategoryFixtures;
 
 
 class SkillFixtures extends Fixture
@@ -33,12 +34,11 @@ class SkillFixtures extends Fixture
 
         $this->addReference(self::SKILL_REFERENCE, $skill);
     }
-        // for ($cnt=0; $cnt < 50; $cnt++) { 
-        //     $skill = new Skill();
-        //     $skill->setName("skill" . strval($cnt + 1));
-        //     $manager->persist($skill);
-        // }
-
-
-        // $manager->flush();
+    public function getDependencies()
+    {
+        sleep(1);
+        return [
+            SubCategoryFixtures::class,
+        ];
+    }
         }
