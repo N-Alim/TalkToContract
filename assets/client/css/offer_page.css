@@ -86,15 +86,15 @@ main.offer_page div.tagsMain {
     justify-content: flex-start;
     align-items: center;
     padding: 8px 20px;
-    line-height: 1.6;
 }
 
 main.offer_page span.tag {
     background-color: var(--blue-primary-color);
-    padding: 2px 7px 2px 7px;
+    padding: 4px 8px;
     margin: 0 4px;
     border-radius: 15%;
     color: var(--white-primary-color);
+    margin-bottom: 1em;
 }
 
 .sidebar-title-frame {
@@ -103,7 +103,7 @@ main.offer_page span.tag {
     margin-bottom: 16px;
     line-height: 1.6;
     border-radius: 2px;
-    color: black;
+    color: var(--white-primary-color);
     border-left: 3px solid #f5f6f7;
 }
 
