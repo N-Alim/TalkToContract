@@ -16,6 +16,18 @@
                 <td>{{ offer.jobName }}</td>
             </tr>
             <tr>
+                <th>Recruteur</th>
+                <td>{{ offer.recruiter.email }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ offer.subCategory.category.name }}</td>
+            </tr>
+            <tr>
+                <th>Sous-catégorie</th>
+                <td>{{ offer.subCategory.name }}</td>
+            </tr>
+            <tr>
                 <th>Description</th>
                 <td>{{ offer.description }}</td>
             </tr>
@@ -42,6 +54,17 @@
             <tr>
                 <th>Expérience</th>
                 <td>{{ offer.experience }}</td>
+            </tr>
+            <tr>
+                <th>Compétences</th>
+                <td> 
+                    <ul>
+                        {% for skill in offer.skills %}
+                            <li>{{ skill.name }}</li>
+                        {% endfor %} 
+                    </ul>
+                   
+                </td>
             </tr>
             <tr>
                 <th>Active</th>
