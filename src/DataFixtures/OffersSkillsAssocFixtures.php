@@ -18,7 +18,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class OffersSkillsAssocFixtures extends Fixture implements DependentFixtureInterface
 {
-    public const OFFER_SKILL_ASSOC_REFERENCE = 'offerSkillAssoc';
+    public const OFFER_SKILL_ASSOC_REFERENCE = 'OfferSkillAssoc';
 
     private ApiCallService $apiCaller;
     private OfferRepository $offerRepo;
@@ -50,6 +50,7 @@ class OffersSkillsAssocFixtures extends Fixture implements DependentFixtureInter
 
     public function getDependencies()
     {
+        sleep(1);
         return [
             OfferFixtures::class,
             SkillFixtures::class,

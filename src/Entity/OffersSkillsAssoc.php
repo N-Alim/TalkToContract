@@ -17,10 +17,10 @@ class OffersSkillsAssoc
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\OneToMany(mappedBy: 'OffersSkillsAssoc', targetEntity: Skill::class)]
+    #[ORM\OneToMany(mappedBy: 'SkillsOffersAssoc', targetEntity: Skill::class)]
     private $offer;
 
-    #[ORM\OneToMany(mappedBy: 'OffersSkillsAssoc', targetEntity: Offer::class)]
+    #[ORM\OneToMany(mappedBy: 'OffersToSkillsAssoc', targetEntity: Offer::class)]
     private $skills;
 
     #[ORM\Column(type: 'datetime_immutable')]
