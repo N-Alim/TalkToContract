@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OfferRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 
@@ -59,20 +61,20 @@ class Offer
     private $modified_at;
 
     #[ORM\ManyToOne(targetEntity: SubCategory::class)]
-    private $id_sub_category;
+    private $sub_category;
 
-    #[ORM\ManyToOne(targetEntity: user::class)]
+    #[ORM\ManyToOne(targetEntity: User::class)]
     private $recruiter;
 
-    #[ORM\ManyToOne(targetEntity: OffersSkillsAssoc::class, inversedBy: 'Skills')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $SkillsToOfferAssoc;
+    #[ORM\ManyToMany(targetEntity: Skill::class, inversedBy: 'offers')]
+    private $skills;
 
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
         $this->setModifiedAt(new \DateTimeImmutable());
         $this->setActive(true);
+        $this->skills = new ArrayCollection();
     }
 
     #[ORM\PreUpdate]
@@ -260,14 +262,14 @@ class Offer
         return $data;
     }
 
-    public function getIdSubCategory(): ?SubCategory
+    public function getSubCategory(): ?SubCategory
     {
-        return $this->id_sub_category;
+        return $this->sub_category;
     }
 
-    public function setIdSubCategory(?SubCategory $id_sub_category): self
+    public function setSubCategory(?SubCategory $sub_category): self
     {
-        $this->id_sub_category = $id_sub_category;
+        $this->sub_category = $sub_category;
 
         return $this;
     }
@@ -284,15 +286,28 @@ class Offer
         return $this;
     }
 
-    public function getSkillsToOfferAssoc(): ?OffersSkillsAssoc
+    /**
+     * @return Collection<int, Skill>
+     */
+    public function getSkills(): Collection
     {
-        return $this->SkillsToOfferAssoc;
+        return $this->skills;
     }
 
-    public function setSkillsToOfferAssoc(?OffersSkillsAssoc $SkillsToOfferAssoc): self
+    public function addSkill(Skill $skill): self
     {
-        $this->SkillsToOfferAssoc = $SkillsToOfferAssoc;
+        if (!$this->skills->contains($skill)) {
+            $this->skills[] = $skill;
+        }
 
         return $this;
     }
+
+    public function removeSkill(Skill $skill): self
+    {
+        $this->skills->removeElement($skill);
+
+        return $this;
+    }
+
 }
