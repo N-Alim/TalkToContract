@@ -1,60 +1,66 @@
-
 {% extends 'client/client.html.twig' %}
 
-{% block title %}Offers{% endblock %} 
+{% block title %}Offers{% endblock %}
 
 
 {% block body %}
 
 <main class="main-offers">
-<section class="wrap-all">
+    <section class="wrap-all">
 
-    <div class="search">
-        <h3>Filtres<h3>
-        <div class ="filtre">
-            <ul id="filtre">
-           <li> <label for="jobName" class="txt">Nom du métier :</label>  
-            <input type="text" id="jobName" name="domaine" placeholder="ex: informatique"> <br /></li>
-            <li> <label for="offer_type" class="txt">Type d'offre :</label>
-            <select name="offertype" id="selectOfferType">
-            {# <div>{{ asset('client/js/script.js') }}</div> #}
-            </select></li>
-            <li> <label for="cat" class="txt">Catégorie :</label>
-            <select name="categorie" id="selectCat">
-            </select> <br /></li>
-            <li> <label for="sous-cat" class="txt">Sous-catégorie :</label>
-            <select name="sous-categorie" id="selectSousCat"></select><br /></li>
+        <div class="search">
+            <h3>Filtres<h3>
+                    <div class="filtre">
+                        <ul id="filtre">
+                            <li> <label for="jobName" class="txt">Nom du métier :</label>
+                                <input type="text" id="jobName" name="domaine" placeholder="ex: informatique"> <br />
+                            </li>
+                            <li> <label for="offer_type" class="txt">Type d'offre :</label>
+                                <select name="offertype" id="selectOfferType">
+                                    {# <div>{{ asset('client/js/script.js') }}</div> #}
+                                </select></li>
+                            <li> <label for="cat" class="txt">Catégorie :</label>
+                                <select name="categorie" id="selectCat">
+                                </select> <br /></li>
+                            <li> <label for="sous-cat" class="txt">Sous-catégorie :</label>
+                                <select name="sous-categorie" id="selectSousCat"></select><br /></li>
 
-            <li> <label for="ville" class="txt">Ville :</label> <input type="text" id="ville" name="ville" placeholder="Entrez une ville"><br /></li>
-            <li> <label for="department" class="txt">Département :</label><select name="department" id="selectDepartment"></select><br /></li>
-            <li> <label for="hourWeek">Heure par semaine : </label><br /> <span>de </span><input type="number" id="hourMin" name="hourWeek" min="0" max="50" value="7">
-            <span> à </span> <input type="number" id="hourMax" name="hourWeek" min="0" max="50" value="35"><span>heures.</span><br /></li>
-            <input type="submit" id="submit" value="Lancer la recherche">
-            </ul>
+                            <li> <label for="ville" class="txt">Ville :</label> <input type="text" id="ville"
+                                    name="ville" placeholder="Entrez une ville"><br /></li>
+                            <li> <label for="department" class="txt">Département :</label><select name="department"
+                                    id="selectDepartment"></select><br /></li>
+                            <li> <label for="hourWeek">Heure par semaine : </label><br /> <span>de </span><input
+                                    type="number" id="hourMin" name="hourWeek" min="0" max="50" value="7">
+                                <span> à </span> <input type="number" id="hourMax" name="hourWeek" min="0" max="50"
+                                    value="35"><span>heures.</span><br /></li>
+                            <li> <label for="experience">Expérience : </label><br /> <span>de </span><input
+                                    type="number" id="expMin" name="experience" min="0" max="50" value="1">
+                                <span> à </span> <input type="number" id="expMax" name="experience" min="0" max="50"
+                                    value="35"><span>ans </span><br /></li>
+                            <input type="submit" id="submit" value="Lancer la recherche">
+                        </ul>
+                    </div>
         </div>
-    </div>
-    <div class="offre">
-        <div class="poste_offre">
-                <h2>Liste des offres<h2>  
-                <div class="jobs-list">
-                    <div class="article-listing"></div>
-                    <div class="article-listing"></div>
-                </div>
-        </div>
+        <div class="offre">
+            <div class="poste_offre">
+                <h2>Liste des offres<h2>
+                        <div class="jobs-list">
+                            <div class="article-listing"></div>
+                            <div class="article-listing"></div>
+                        </div>
+            </div>
             <div class="jobs-pagination-wrapper main-pagination-wrapper">
                 <ul class="pagination">
-                  <li>
+                    <li>
                         <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
                             <i class="ti-arrow-left">⬅</i>
                         </a>
                     </li>
                     <li>
-                        <span class="page-numbers current" href="">1</span>
+                        <input type="number" class="page-numbers current" min="1" value="1">
                     </li>
-                      <li>
-                        <span class=" next page-numbers" href="">2</span>
-                    </li>
-                      <li>
+
+                    <li>
                         <a class="prev page-numbers" href="{{ path("homepage_client")}}">
                             <i class="ti-arrow-right">➡</i>
                         </a>
@@ -62,10 +68,10 @@
                     <button class="go">Go !</button>
                 </ul>
             </div>
-        </div> 
-    </div>
-          
+        </div>
+        </div>
+
     </section>
-         
+
 </main>
 {% endblock %}
