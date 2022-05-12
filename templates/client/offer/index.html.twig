@@ -1,70 +1,83 @@
-
 {% extends 'client/client.html.twig' %}
 
-{% block title %}Offers{% endblock %} 
+{% block title %}Offers{% endblock %}
 
 
 {% block body %}
 
-<main class="main-offers">
-<section class="wrap-all">
-
+<main class="offers-list">
     <div class="search">
-        <h3>Filtres<h3>
-        <div class ="filtre">
-            <ul id="filtre">
-           <li> <label for="jobName" class="txt">Nom du métier :</label>  
-            <input type="text" id="jobName" name="domaine" placeholder="ex: informatique"> <br /></li>
-            <li> <label for="offer_type" class="txt">Type d'offre :</label>
-            <select name="offertype" id="selectOfferType">
-            {# <div>{{ asset('client/js/script.js') }}</div> #}
-            </select></li>
-            <li> <label for="cat" class="txt">Catégorie :</label>
-            <select name="categorie" id="selectCat">
-            </select> <br /></li>
-            <li> <label for="sous-cat" class="txt">Sous-catégorie :</label>
-            <select name="sous-categorie" id="selectSousCat"></select><br /></li>
-
-            <li> <label for="ville" class="txt">Ville :</label> <input type="text" id="ville" name="ville" placeholder="Entrez une ville"><br /></li>
-            <li> <label for="department" class="txt">Département :</label><select name="department" id="selectDepartment"></select><br /></li>
-            <li> <label for="hourWeek">Heure par semaine : </label><br /> <span>de </span><input type="number" id="hourMin" name="hourWeek" min="0" max="50" value="7">
-            <span> à </span> <input type="number" id="hourMax" name="hourWeek" min="0" max="50" value="35"><span>heures.</span><br /></li>
-            <input type="submit" id="submit" value="Lancer la recherche">
-            </ul>
+        <div class="filtre">
+            <button class="submit" type="submit" value="Search">
+                <span>Rechercher</span>
+                <i class="fas faw fa-search"></i>
+            </button>
+            <div class="form-group">
+                <label for="jobName" class="txt">Nom du poste</label>
+                <input type="text" id="jobName" name="domaine" placeholder="ex : informatique">
+            </div>
+            <div class="form-group">
+                <label for="offer_type" class="txt">Type d'offre</label>
+                <select name="offertype" id="selectOfferType">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cat" class="txt">Catégorie</label>
+                <select name="categorie" id="selectCat">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sous-cat" class="txt">Sous-catégorie</label>
+                <select name="sous-categorie" id="selectSousCat"></select>
+            </div>
+            <div class="form-group">
+                <label for="ville" class="txt">Ville</label>
+                <input type="text" id="ville" name="ville"
+                    placeholder="Entrez une ville">
+                </div>
+            <div class="form-group">
+                <label for="department" class="txt">Département</label><select name="department"
+                    id="selectDepartment"></select></div>
+            <div class="form-group">
+                <label for="hourWeek">Heure par semaine </label>
+                <div class="hours">
+                    <input type="number"
+                        id="hourMax" name="hourWeek" min="0" max="50" value="7">
+                    <span> à </span>
+                    <input type="number" id="hourMax" name="hourWeek" min="0" max="50"
+                        value="35">
+                </div>
+            </div>
         </div>
     </div>
     <div class="offre">
-        <div class="poste_offre">
-                <h2>Liste des offres<h2>  
-                <div class="jobs-list">
-                    <div class="article-listing"></div>
-                    <div class="article-listing"></div>
-                </div>
-        </div>
-            <div class="jobs-pagination-wrapper main-pagination-wrapper">
-                <ul class="pagination">
-                  <li>
-                        <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
-                            <i class="ti-arrow-left">⬅</i>
-                        </a>
-                    </li>
-                    <li>
-                        <span class="page-numbers current" href="">1</span>
-                    </li>
-                      <li>
-                        <span class=" next page-numbers" href="">2</span>
-                    </li>
-                      <li>
-                        <a class="prev page-numbers" href="{{ path("homepage_client")}}">
-                            <i class="ti-arrow-right">➡</i>
-                        </a>
-                    </li>
-                </ul>
+            <h1>Liste des offres<h1>
+            <div class="poste_offre">
+            <div class="jobs-list">
+                <div class="article-listing"></div>
+                <div class="article-listing"></div>
             </div>
-        </div> 
+        </div>
+        <div class="jobs-pagination-wrapper main-pagination-wrapper">
+            <ul class="pagination">
+                <div>
+                    <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
+                        <i class="ti-arrow-left">⬅</i>
+                    </a>
+                </div>
+                <div>
+                    <span class="page-numbers current" href="">1</span>
+                </div>
+                <div>
+                    <span class=" next page-numbers" href="">2</span>
+                </div>
+                <div>
+                    <a class="prev page-numbers" href="{{ path("homepage_client")}}">
+                        <i class="ti-arrow-right">➡</i>
+                    </a>
+                </div>
+            </ul>
+        </div>
     </div>
-          
-    </section>
-         
 </main>
 {% endblock %}
