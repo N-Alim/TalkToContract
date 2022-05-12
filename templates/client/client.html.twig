@@ -31,75 +31,74 @@
                     <li>
                         <a href="{{ path("offer_index_client") }}">Liste des offres</a>
                     </li>
+                    
+                {% if is_granted("ROLE_RECRUITER") %}
+                <li>
+                    <a href="{{ path("offer_new_client") }}">Créer une offre</a>
+                </li>
+                {% endif %}
 
-                    {% if is_granted("ROLE_RECRUITER") %}
-                        {# <li>
-                            <a href="{{ path("offer_new_client") }}">Créer une offre</a>
-                        </li> #}
-                    {% endif %}
-
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <li>
-                            <a href="{{ path("homepage_admin") }}">Page admin</a>
-                        </li>
-                    {% endif %}
-                </ul>
-                </nav>
-                <div class="account-buttons">
-                    {% if app.user %}
-                        {# <a href="{{ path("account_client") }}">
+                {% if is_granted("ROLE_ADMIN") %}
+                <li>
+                    <a href="{{ path("homepage_admin") }}">Page admin</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="account-buttons">
+            {% if app.user %}
+            {# <a href="{{ path("account_client") }}">
                                 <i class="fas fa-key"></i>
                                 Mon compte
                             </a> #}
 
-                            <a href="{{ path("logout") }}">
-                                Déconnexion
-                            </a>
-                    {% else %}
-                            <a href="{{ path("login") }}">
-                                Connexion
-                            </a>
+            <a href="{{ path("logout") }}">
+                Déconnexion
+            </a>
+            {% else %}
+            <a href="{{ path("login") }}">
+                Connexion
+            </a>
 
-                            <a href="{{ path("register") }}">
-                                Inscription
-                            </a>
-                    {% endif %}
-                </div>
-                <div class="burger-button">
-                    <span class="burger-top"></span>
-                    <span class="burger-middle"></span>
-                    <span class="burger-bottom"></span>
-                </div>
-                <div class="burger-menu">
-                    <a href="{{ path("homepage_client") }}">Accueil</a>
-                    <a href="{{ path("offer_index_client") }}">Liste des offres</a>
-                
-                    {% if is_granted("ROLE_RECRUITER") %}
-                        {#  <a href="{{ path("offer_new_client") }}">Créer une offre</a> #}
-                    {% endif %}
-                    
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <a href="{{ path("homepage_admin") }}">Page admin</a>
-                    {% endif %}
-                    {% if app.user %}
-                        {#  <a href="{{ path("account_client") }}">
+            <a href="{{ path("register") }}">
+                Inscription
+            </a>
+            {% endif %}
+        </div>
+        <div class="burger-button">
+            <span class="burger-top"></span>
+            <span class="burger-middle"></span>
+            <span class="burger-bottom"></span>
+        </div>
+        <div class="burger-menu">
+            <a href="{{ path("homepage_client") }}">Accueil</a>
+            <a href="{{ path("offer_index_client") }}">Liste des offres</a>
+
+            {% if is_granted("ROLE_RECRUITER") %}
+            {#  <a href="{{ path("offer_new_client") }}">Créer une offre</a> #}
+            {% endif %}
+
+            {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path("homepage_admin") }}">Page admin</a>
+            {% endif %}
+            {% if app.user %}
+            {#  <a href="{{ path("account_client") }}">
                             Mon compte
                         </a>  #}
-                        <a href="{{ path("logout") }}">
-                            Déconnexion
-                        </a>
-                    {% else %}
-                        <a href="{{ path("login") }}">
-                            Connexion
-                        </a>
+            <a href="{{ path("logout") }}">
+                Déconnexion
+            </a>
+            {% else %}
+            <a href="{{ path("login") }}">
+                Connexion
+            </a>
 
-                        <a href="{{ path("register") }}">
-                            Inscription
-                        </a> 
-                    {% endif %}
-            </div>
-        </header>
-        
+            <a href="{{ path("register") }}">
+                Inscription
+            </a>
+            {% endif %}
+        </div>
+    </header>        
         {% block body %}
             <main class="homepage flex-col-center">
                 <div class="homepage-content">
@@ -121,12 +120,11 @@
                 </div>
             </main>
         {% endblock %}
-
-        <footer>
-            <p> © Talk To Contract, {{ "now"|date("Y") }}</p>
-            <p>Contactez-nous : <b>talk.to.contract@gmail.com</b></p>
-            <a href="{{ path("legal_disclaimer_client") }}">Mentions légales</a>
-        </footer>
-    </body>
+    <footer>
+        <p> © Talk To Contract, {{ "now"|date("Y") }}</p>
+        <p>Contactez-nous : <b>talk.to.contract@gmail.com</b></p>
+        <a href="{{ path("legal_disclaimer_client") }}">Mentions légales</a>
+    </footer>
+</body>
 
 </html>
