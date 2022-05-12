@@ -1,5 +1,5 @@
  {% extends "admin/admin.html.twig" %}
- {% block title %}OffersType index{% endblock %}
+ {% block title %}Type d'offres{% endblock %}
 
 {% block body %}
     <h1>Index des type d'offres</h1>
@@ -8,8 +8,8 @@
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Créé le</th>
-                <th>Modifié le</th>
+                {# <th>Créé le</th> #}
+                {# <th>Modifié le</th> #}
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,8 +17,8 @@
         {% for offers_type in offers_types %}
             <tr>
                 <td>{{ offers_type.label }}</td>
-                <td>{{ offers_type.createdAt ? offers_type.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ offers_type.modifiedAt ? offers_type.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ offers_type.createdAt ? offers_type.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                {# <td>{{ offers_type.modifiedAt ? offers_type.modifiedAt|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
                     <a href="{{ path('offers_type_show_admin', {'id': offers_type.id}) }}">Afficher</a>
                     <a href="{{ path('offers_type_edit_admin', {'id': offers_type.id}) }}">Modifier</a>
