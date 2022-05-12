@@ -1,112 +1,115 @@
 <!DOCTYPE html>
 <html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}TTC{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('client') }}
-        <link href="{{ asset("administration/pck/fontawesome-free/css/all.min.css")}}" rel="stylesheet" type="text/css">
-        {% endblock %}
-        {% block javascripts %}
-            {{ encore_entry_script_tags('client') }}
-        {% endblock %}
-        
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <img src="{{asset("img/LogoTalkToContract.png")}}"></img>
-                <p>Talk To Contract</p>
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="{{ path("homepage_client") }}">Accueil</a>
-                    </li>
-                    <li>
-                        <a href="{{ path("offer_index_client") }}">Liste des offres</a>
-                    </li>
 
-                    {% if is_granted("ROLE_RECRUITER") %}
-                        {# <li>
-                            <a href="{{ path("offer_new_client") }}">Créer une offre</a>
-                        </li> #}
-                    {% endif %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TTC{% endblock %}</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+    {{ encore_entry_link_tags('client') }}
+    <link href="{{ asset("administration/pck/fontawesome-free/css/all.min.css")}}" rel="stylesheet" type="text/css">
+    {% endblock %}
+    {% block javascripts %}
+    {{ encore_entry_script_tags('client') }}
+    {% endblock %}
 
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <li>
-                            <a href="{{ path("homepage_admin") }}">Page admin</a>
-                        </li>
-                    {% endif %}
-                </ul>
-                </nav>
-                <div class="account-buttons">
-                    {% if app.user %}
-                        {# <a href="{{ path("account_client") }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{asset("img/LogoTalkToContract.png")}}"></img>
+            <p>Talk To Contract</p>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="{{ path("homepage_client") }}">Accueil</a>
+                </li>
+                <li>
+                    <a href="{{ path("offer_index_client") }}">Liste des offres</a>
+                </li>
+
+                {% if is_granted("ROLE_RECRUITER") %}
+                <li>
+                    <a href="{{ path("offer_new_client") }}">Créer une offre</a>
+                </li>
+                {% endif %}
+
+                {% if is_granted("ROLE_ADMIN") %}
+                <li>
+                    <a href="{{ path("homepage_admin") }}">Page admin</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="account-buttons">
+            {% if app.user %}
+            {# <a href="{{ path("account_client") }}">
                                 <i class="fas fa-key"></i>
                                 Mon compte
                             </a> #}
 
-                            <a href="{{ path("logout") }}">
-                                Déconnexion
-                            </a>
-                    {% else %}
-                            <a href="{{ path("login") }}">
-                                Connexion
-                            </a>
+            <a href="{{ path("logout") }}">
+                Déconnexion
+            </a>
+            {% else %}
+            <a href="{{ path("login") }}">
+                Connexion
+            </a>
 
-                            <a href="{{ path("register") }}">
-                                Inscription
-                            </a>
-                    {% endif %}
-                </div>
-                <div class="burger-button">
-                    <span class="burger-top"></span>
-                    <span class="burger-middle"></span>
-                    <span class="burger-bottom"></span>
-                </div>
-                <div class="burger-menu">
-                    <a href="{{ path("homepage_client") }}">Accueil</a>
-                    <a href="{{ path("offer_index_client") }}">Liste des offres</a>
-                
-                    {% if is_granted("ROLE_RECRUITER") %}
-                        {#  <a href="{{ path("offer_new_client") }}">Créer une offre</a> #}
-                    {% endif %}
-                    
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <a href="{{ path("homepage_admin") }}">Page admin</a>
-                    {% endif %}
-                    {% if app.user %}
-                        {#  <a href="{{ path("account_client") }}">
+            <a href="{{ path("register") }}">
+                Inscription
+            </a>
+            {% endif %}
+        </div>
+        <div class="burger-button">
+            <span class="burger-top"></span>
+            <span class="burger-middle"></span>
+            <span class="burger-bottom"></span>
+        </div>
+        <div class="burger-menu">
+            <a href="{{ path("homepage_client") }}">Accueil</a>
+            <a href="{{ path("offer_index_client") }}">Liste des offres</a>
+
+            {% if is_granted("ROLE_RECRUITER") %}
+            {#  <a href="{{ path("offer_new_client") }}">Créer une offre</a> #}
+            {% endif %}
+
+            {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path("homepage_admin") }}">Page admin</a>
+            {% endif %}
+            {% if app.user %}
+            {#  <a href="{{ path("account_client") }}">
                             Mon compte
                         </a>  #}
-                        <a href="{{ path("logout") }}">
-                            Déconnexion
-                        </a>
-                    {% else %}
-                        <a href="{{ path("login") }}">
-                            Connexion
-                        </a>
+            <a href="{{ path("logout") }}">
+                Déconnexion
+            </a>
+            {% else %}
+            <a href="{{ path("login") }}">
+                Connexion
+            </a>
 
-                        <a href="{{ path("register") }}">
-                            Inscription
-                        </a> 
-                    {% endif %}
-            </div>
-        </header>
-        
-        {% block body %}{% endblock %}
+            <a href="{{ path("register") }}">
+                Inscription
+            </a>
+            {% endif %}
+        </div>
+    </header>
 
-        <footer>
-            <p> © Talk To Contract, {{ "now"|date("Y") }}</p>
-            <p>Contactez-nous : <b>talk.to.contract@gmail.com</b></p>
-            <a href="{{ path("legal_disclaimer_client") }}">Mentions légales</a>
-        </footer>
-    </body>
+    {% block body %}{% endblock %}
+
+    <footer>
+        <p> © Talk To Contract, {{ "now"|date("Y") }}</p>
+        <p>Contactez-nous : <b>talk.to.contract@gmail.com</b></p>
+        <a href="{{ path("legal_disclaimer_client") }}">Mentions légales</a>
+    </footer>
+</body>
 
 </html>

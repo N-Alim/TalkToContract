@@ -22,6 +22,24 @@ class OfferController extends AbstractController
         ]);
     }
 
+    #[Route('/new', name: 'offer_new_client', methods: ['GET', 'POST'])]
+    public function new(Request $request, OfferRepository $offerRepository): Response
+    {
+        $offer = new Offer();
+        $form = $this->createForm(OfferType::class, $offer);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $offerRepository->add($offer);
+            return $this->redirectToRoute('offer_index_client', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('client/offer/new.html.twig', [
+            'offer' => $offer,
+            'form' => $form,
+        ]);
+    }
+
     #[Route('/get', name: 'offer_get_client', methods: ['GET'])]
     public function index(OfferRepository $offerRepository, Request $request): Response
     {
