@@ -176,4 +176,11 @@ a.prev.page-number{
     height: 40px;
     background-color: #fff;
     cursor: pointer;
+    border-radius: 30px;
+}
+
+input.page-numbers{
+    width: 40px;
+    height: 40px;
+    text-align: center;
 }
