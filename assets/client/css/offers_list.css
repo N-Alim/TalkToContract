@@ -1,0 +1,122 @@
+main.offers-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    align-items: center;
+    width: 100%;
+}
+
+div.search{
+    width: 40%;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+    background-color: var(--blue-primary-color-secondary-faded);
+}
+
+div.offre{
+    width: 60%;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 3em;
+    border-radius: 15px;
+    background-color: var(--blue-primary-color-secondary-faded);
+}
+
+div.filtre {
+    width: 100%;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.offers-list div.mainContent{
+    border: 1px solid black;
+    width: 90%;
+    padding: 3em;
+    border-radius: 15px;
+    background-color: var(--blue-primary-color-secondary-faded);
+}
+
+main.offers-list h1{
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+main.offers-list h3{
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+main.offers-list, main.offers-list div.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+main.offers-list label{
+    font-size: var(--p-size);
+}
+
+main.offers-list div.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main.offers-list input, main.offers-list textarea, main.offers-list select{
+    height: 2em;
+    font-size: var(--p-size);
+    width: 60%;
+    padding: 4px 8px;
+}
+
+main.offers-list div.hours {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+main.offers-list textarea {
+    height: 4em;
+}
+
+main.offers-list button{
+    font-size: var(--p-size);
+    padding: 8px 12px;
+    width: 60%;
+}
+
+main.offers-list a {
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 300;
+	color: black;
+	padding: 15px 15px;
+	white-space: nowrap;
+}
+
+main.offers-list a:hover {
+	color: white;
+	background-color: #999;
+}
+
+@media screen and (min-width: 768px) 
+{
+    footer p {
+        margin-bottom: 3%;
+    }
+}
+
+@media screen and (min-width: 1024px) 
+{
+    main.offers-list {
+        flex-direction: row;
+    }
+}
