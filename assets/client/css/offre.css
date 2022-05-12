@@ -170,3 +170,10 @@ a.prev.page-number{
         line-height: 44px;
     }
 }
+
+.go{
+    width: 50px;
+    height: 40px;
+    background-color: #fff;
+    cursor: pointer;
+}
