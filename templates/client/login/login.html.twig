@@ -1,6 +1,6 @@
 {% extends 'client/client.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Se connecter{% endblock %}
 
 {% block body %}
     {% if error %}
@@ -19,6 +19,6 @@
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <button type="submit">login</button>
+        <button type="submit">Se connecter</button>
     </form>
 {% endblock %}
