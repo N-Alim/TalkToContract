@@ -48,9 +48,9 @@
         <div class="account-buttons">
             {% if app.user %}
             {# <a href="{{ path("account_client") }}">
-                                <i class="fas fa-key"></i>
-                                Mon compte
-                            </a> #}
+                <i class="fas fa-key"></i>
+                Mon compte
+            </a> #}
 
             <a href="{{ path("logout") }}">
                 Déconnexion
@@ -75,7 +75,7 @@
             <a href="{{ path("offer_index_client") }}">Liste des offres</a>
 
             {% if is_granted("ROLE_RECRUITER") %}
-            {#  <a href="{{ path("offer_new_client") }}">Créer une offre</a> #}
+                <a href="{{ path("offer_new_client") }}">Créer une offre</a>
             {% endif %}
 
             {% if is_granted("ROLE_ADMIN") %}
@@ -83,8 +83,8 @@
             {% endif %}
             {% if app.user %}
             {#  <a href="{{ path("account_client") }}">
-                            Mon compte
-                        </a>  #}
+                Mon compte
+            </a>  #}
             <a href="{{ path("logout") }}">
                 Déconnexion
             </a>
