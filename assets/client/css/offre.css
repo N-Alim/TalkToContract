@@ -37,9 +37,7 @@ main .main-offers{
     border-radius: 3px;
     align-items: center;
 }
-ul#filtre{
-    
-}
+
 #filtre ul{
     display: flex;
     justify-content: center;
