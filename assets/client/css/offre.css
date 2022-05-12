@@ -15,17 +15,40 @@ main .main-offers{
     border: 1px solid blue;
     background-color: #aabbca;
     width: 40%;
-    height: 100vh;
+    height: 80vh;
     margin: 20px;
     padding: 0px;
     border-radius: 3px;
     
 }
 
-label.txt{
-    padding: 10px;
+/* label.txt{
+    padding: 10px 5px;
+    margin: 40px;
+} */
 
-    /* margin: 40px; */
+.filtre{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+#filtre ul{
+    background-color: whitesmoke;
+    border-radius: 3px;
+    align-items: center;
+}
+ul#filtre{
+    
+}
+#filtre ul{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+#filtre li{
+    border: 3px solid lightgrey;
+    background-color: whitesmoke;
+    gap: 10%;
 }
 
 .offre{
@@ -91,7 +114,7 @@ ul{
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    /* padding-inline-start: 40px; */
 }
 ul.pagination{
     display: flex;
