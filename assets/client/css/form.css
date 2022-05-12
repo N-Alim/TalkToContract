@@ -1,0 +1,87 @@
+main.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    padding: 3em 0;
+}
+
+div#offer {
+    width: 100%;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+main.form div.mainContent{
+    border: 1px solid black;
+    width: 90%;
+    padding: 3em;
+    border-radius: 15px;
+    background-color: var(--blue-primary-color-secondary-faded);
+}
+
+main.form h1{
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+main.form form, main.form form div.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+main.form form label{
+    font-size: var(--p-size);
+}
+
+main.form form div.form-group {
+    width: 100%;
+}
+
+main.form input, main.form textarea, main.form select{
+    height: 2em;
+    font-size: var(--p-size);
+    width: 100%;
+    padding: 4px 8px;
+}
+
+main.form form textarea {
+    height: 4em;
+}
+
+main.form form button{
+    font-size: var(--p-size);
+    padding: 8px 12px;
+}
+
+main.form a {
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 300;
+	color: black;
+	padding: 15px 15px;
+	white-space: nowrap;
+}
+
+main.form a:hover {
+	color: white;
+	background-color: #999;
+}
+
+@media screen and (min-width: 768px) 
+{
+    main.form div.mainContent{
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1024px) 
+{
+    main.form div.mainContent{
+        width: 60%;
+    }
+}
