@@ -4,7 +4,6 @@
 
 
 {% block body %}
-
 <main class="offers-list">
     <div class="search">
         <div class="filtre">
@@ -61,11 +60,12 @@
                 <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
                     <i class="ti-arrow-left">⬅</i>
                 </a>
-                <span class="page-numbers current" href="">1</span>
-                <span class=" next page-numbers" href="">2</span>
+                <input type="number" class="page-numbers current" min="1" value="1">
+
                 <a class="prev page-numbers" href="{{ path("homepage_client")}}">
                     <i class="ti-arrow-right">➡</i>
                 </a>
+                <button class="go">Go !</button>
             </div>
         </div>
     </div>
