@@ -2,7 +2,7 @@ main.offers-list {
     display: flex;
     flex-direction: column;
     justify-content: space-around; 
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
 }
 
@@ -16,17 +16,6 @@ div.search{
     border-bottom: 2px solid #000;
 }
 
-div.offre{
-    width: 60%;
-    gap: 3em;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    padding: 3em;
-    border-radius: 15px;
-    background-color: var(--blue-primary-color-secondary-faded);
-}
-
 div.filtre {
     width: 100%;
     gap: 3em;
@@ -35,12 +24,29 @@ div.filtre {
     align-items: center;
 }
 
+div.offers{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2em;
+}
+
+div.offers-main-content{
+    width: 100%;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+}
+
 main.offers-list h1{
     text-align: center;
     margin-bottom: 1em;
 }
 
-main.offers-list, main.offers-list div.form-group {
+main.offers-list div.form-group {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,9 +103,6 @@ main.offers-list a:hover {
 
 @media screen and (min-width: 768px) 
 {
-    footer p {
-        margin-bottom: 3%;
-    }
 }
 
 @media screen and (min-width: 1024px) 
