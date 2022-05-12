@@ -12,6 +12,7 @@ import './client/css/homepage.css';
 import './client/css/offre.css';
 import './client/css/offer_page.css';
 
+import './client/css/offers_edition.css';
 
 import './client/js/script.js';
 import './client/js/burgerMenu.js';
