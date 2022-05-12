@@ -3,22 +3,26 @@
 {% block title %}Se connecter{% endblock %}
 
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <main class="form wrap-10">
+        <div class="mainContent">
+            {% if error %}
+                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            <h1>Se connecter</h1>
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+            <form action="{{ path('login') }}" method="post">
+                <label for="username">Email</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="_password"/>
 
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"/> #}
+                {# If you want to control the URL the user is redirected to on success
+                <input type="hidden" name="_target_path" value="/account"/> #}
 
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-        <button type="submit">Se connecter</button>
-    </form>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+              <button type="submit">Se connecter</button>
+          </form>
+        </div>
+    </main>
 {% endblock %}

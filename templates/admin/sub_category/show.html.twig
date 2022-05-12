@@ -2,7 +2,7 @@
 {% block title %}SubCategory{% endblock %}
 
 {% block body %}
-    <h1>SubCategory</h1>
+    <h1>Sous-catégorie</h1>
 
     <table class="table">
         <tbody>
@@ -11,23 +11,23 @@
                 <td>{{ sub_category.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ sub_category.name }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
+                <th>Créé le</th>
                 <td>{{ sub_category.createdAt ? sub_category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Modified_at</th>
+                <th>Modifié le</th>
                 <td>{{ sub_category.modifiedAt ? sub_category.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('sub_category_index_admin') }}">back to list</a>
+    <a href="{{ path('sub_category_index_admin') }}">Retour à la liste</a>
 
-    <a href="{{ path('sub_category_edit_admin', {'id': sub_category.id}) }}">edit</a>
+    <a href="{{ path('sub_category_edit_admin', {'id': sub_category.id}) }}">Modifier</a>
 
     {{ include('admin/sub_category/_delete_form.html.twig') }}
 {% endblock %}
