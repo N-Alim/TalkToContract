@@ -51,32 +51,22 @@
         </div>
     </div>
     <div class="offre">
-            <h1>Liste des offres<h1>
-            <div class="poste_offre">
+        <h1>Liste des offres<h1>
+        <div class="offers-list">
             <div class="jobs-list">
                 <div class="article-listing"></div>
                 <div class="article-listing"></div>
             </div>
-        </div>
-        <div class="jobs-pagination-wrapper main-pagination-wrapper">
-            <ul class="pagination">
-                <div>
-                    <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
-                        <i class="ti-arrow-left">⬅</i>
-                    </a>
-                </div>
-                <div>
-                    <span class="page-numbers current" href="">1</span>
-                </div>
-                <div>
-                    <span class=" next page-numbers" href="">2</span>
-                </div>
-                <div>
-                    <a class="prev page-numbers" href="{{ path("homepage_client")}}">
-                        <i class="ti-arrow-right">➡</i>
-                    </a>
-                </div>
-            </ul>
+            <div class="pagination">
+                <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
+                    <i class="ti-arrow-left">⬅</i>
+                </a>
+                <span class="page-numbers current" href="">1</span>
+                <span class=" next page-numbers" href="">2</span>
+                <a class="prev page-numbers" href="{{ path("homepage_client")}}">
+                    <i class="ti-arrow-right">➡</i>
+                </a>
+            </div>
         </div>
     </div>
 </main>
