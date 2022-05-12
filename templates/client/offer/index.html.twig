@@ -50,23 +50,17 @@
         </div>
     </div>
     <div class="offre">
-            <h1>Liste des offres<h1>
-            <div class="poste_offre">
+        <h1>Liste des offres<h1>
+        <div class="offers-list">
             <div class="jobs-list">
                 <div class="article-listing"></div>
                 <div class="article-listing"></div>
             </div>
-        </div>
-        <div class="jobs-pagination-wrapper main-pagination-wrapper">
-                <ul class="pagination">
-                    <li>
-                        <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
-                            <i class="ti-arrow-left">⬅</i>
-                        </a>
-                    </li>
-                    <li>
-                        <input type="number" class="page-numbers current" min="1" value="1">
-                    </li>
+            <div class="pagination">
+                <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
+                    <i class="ti-arrow-left">⬅</i>
+                </a>
+                <input type="number" class="page-numbers current" min="1" value="1">
 
                     <li>
                         <a class="next page-numbers" href="{{ path("homepage_client")}}">
@@ -75,6 +69,7 @@
                     </li>
                     <button class="go">Go !</button>
                 </ul>
+
         </div>
     </div>
 </main>

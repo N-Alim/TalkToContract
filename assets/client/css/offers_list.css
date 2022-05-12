@@ -7,12 +7,13 @@ main.offers-list {
 }
 
 div.search{
-    width: 40%;
+    width: 100%;
     gap: 3em;
     display: flex;
     flex-direction: column;
     padding: 3em;
     background-color: var(--blue-primary-color-secondary-faded);
+    border-bottom: 2px solid #000;
 }
 
 div.offre{
@@ -34,20 +35,7 @@ div.filtre {
     align-items: center;
 }
 
-main.offers-list div.mainContent{
-    border: 1px solid black;
-    width: 90%;
-    padding: 3em;
-    border-radius: 15px;
-    background-color: var(--blue-primary-color-secondary-faded);
-}
-
 main.offers-list h1{
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-main.offers-list h3{
     text-align: center;
     margin-bottom: 1em;
 }
@@ -119,4 +107,11 @@ main.offers-list a:hover {
     main.offers-list {
         flex-direction: row;
     }
+
+    div.search{
+        width: 40%;
+        flex-direction: column;
+        border-bottom: none;
+}
+
 }
