@@ -1,7 +1,8 @@
+const go = document.querySelector(".go");
+go.addEventListener("click");
 
-
-
-console.log('coucou');
+const buttonSubmit = document.querySelector(".submit")
+buttonSubmit.addEventListener('click'); 
 
 const axios = require('axios');
 // const { pop } = require('core-js/core/array');
@@ -31,7 +32,8 @@ function getOffers(){
 
 }
 
-// document.querySelector('div.test').addEventListener('click',  getOffers)
+
+// document.querySelector('div.go').addEventListener('click',  getOffers)
 // document.querySelector('div.test').addEventListener('click',  getOffers)
 
 // POP UP
