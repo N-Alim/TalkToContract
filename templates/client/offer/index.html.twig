@@ -12,52 +12,54 @@
     <div class="search">
         <h3>Filtres<h3>
         <div class ="filtre">
-            <label for="jobName" class="txt">Nom du métier :</label>  
-            <input type="text" id="jobName" name="domaine" placeholder="ex: informatique" value="jobName"> 
-            <label for="offer_type" class="txt">Type d'offre :</label>
+            <ul id="filtre">
+           <li> <label for="jobName" class="txt">Nom du métier :</label>  
+            <input type="text" id="jobName" name="domaine" placeholder="ex: informatique"> <br /></li>
+            <li> <label for="offer_type" class="txt">Type d'offre :</label>
             <select name="offertype" id="selectOfferType">
             {# <div>{{ asset('client/js/script.js') }}</div> #}
-            </select>
-            <label for="cat" class="txt">Catégorie :</label>
+            </select></li>
+            <li> <label for="cat" class="txt">Catégorie :</label>
             <select name="categorie" id="selectCat">
-            </select>
-            <label for="sous-cat" class="txt">Sous catégorie :</label>
-            <select name="sous-categorie" id="selectSousCat"></select>
+            </select> <br /></li>
+            <li> <label for="sous-cat" class="txt">Sous-catégorie :</label>
+            <select name="sous-categorie" id="selectSousCat"></select><br /></li>
 
-         <form>
-              <div data-role="rangeslider">
-                <label for="range-left" class="txt">Heure par semaine min:</label>
-                <input type="range" name="range-left" id="hour-range-left" min="0" max="20" value="5" data-popup-enabled="true" data-show-value="true" value="heureMin">
-                <label for="range-right" class="txt">Heure par semaine :</label>
-                <input type="range" name="range-right" id="hour-range-right" min="0" max="40" value="10" data-popup-enabled="true" data-show-value="true" value="heureMax">
-              </div>
-        </form>
-
-            <label for="ville" class="txt">Ville :</label> <input type="text" id="ville" name="ville" value="ville">
-            <label for="department" class="txt">Département :</label><select name="department" id="selectDepartment"></select>
-        <form>
-             <div data-role="rangeslider">
-            <label for="range-left" class="txt">Expérience min:</label>
-            <input type="range" name="range-left" id="experience-range-left" min="0" max="20" value="5" data-popup-enabled="true" data-show-value="true" value="expMin">
-            <label for="range-right" class="txt">Expérience:</label>
-            <input type="range" name="range-right" id="experience-range-right" min="0" max="30" value="10" data-popup-enabled="true" data-show-value="true" value="expMax">
-              </div>
-        </form>
-    
-
-        
-        
+            <li> <label for="ville" class="txt">Ville :</label> <input type="text" id="ville" name="ville" placeholder="Entrez une ville"><br /></li>
+            <li> <label for="department" class="txt">Département :</label><select name="department" id="selectDepartment"></select><br /></li>
+            <li> <label for="hourWeek">Heure par semaine : </label><br /> <span>de </span><input type="number" id="hourMin" name="hourWeek" min="0" max="50" value="7">
+            <span> à </span> <input type="number" id="hourMax" name="hourWeek" min="0" max="50" value="35"><span>heures.</span><br /></li>
+            <input type="submit" id="submit" value="Lancer la recherche">
+            </ul>
         </div>
     </div>
     <div class="offre">
         <div class="poste_offre">
                 <h2>Liste des offres<h2>  
-            <div class="nav-pagination">
-                <button class="previous">Précédent</button>
-                <div class="popup" onclick="popupFunction()">
-                <input type="number" id="nbrPagination" value="1">
-                <span class="popUpText" id="myPopUp">Entrez le numéro de page souhaité</span>
-                <button class="next">Suivant</button>
+                <div class="jobs-list">
+                    <div class="article-listing"></div>
+                    <div class="article-listing"></div>
+                </div>
+        </div>
+            <div class="jobs-pagination-wrapper main-pagination-wrapper">
+                <ul class="pagination">
+                  <li>
+                        <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
+                            <i class="ti-arrow-left">⬅</i>
+                        </a>
+                    </li>
+                    <li>
+                        <span class="page-numbers current" href="">1</span>
+                    </li>
+                      <li>
+                        <span class=" next page-numbers" href="">2</span>
+                    </li>
+                      <li>
+                        <a class="prev page-numbers" href="{{ path("homepage_client")}}">
+                            <i class="ti-arrow-right">➡</i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div> 
     </div>
