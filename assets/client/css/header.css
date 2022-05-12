@@ -6,6 +6,7 @@ header {
     justify-content: space-between;
     top: 0;
     color: white;
+    height: 14vh;
 }
 
 header div.logo {
