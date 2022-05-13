@@ -18,6 +18,7 @@
                 <div class="form-group">
                     <label for="offer_type" class="txt">Type d'offre</label>
                     <select name="offertype" id="selectOfferType">
+                        <option value="">Choisissez un type d'offre</option>
                         {% for offersType in offers_types %}
                             <option value="{{offersType.id}}">{{ offersType.label }}</option>
                         {% endfor %}
@@ -26,6 +27,7 @@
                 <div class="form-group">
                     <label for="cat" class="txt">Catégorie</label>
                     <select name="categorie" id="selectCat">
+                        <option value="">Choisissez une catégorie</option>
                         {% for category in categories %}
                             <option value="{{category.id}}">{{ category.name }}</option>
                         {% endfor %}
@@ -34,6 +36,7 @@
                 <div class="form-group">
                     <label for="sous-cat" class="txt">Sous-catégorie</label>
                     <select name="sous-categorie" id="selectSousCat">
+                        <option value="">Choisissez une sous-catégorie</option>
                         {% for subCategory in sub_categories %}
                             <option value="{{subCategory.id}}">{{ subCategory.name }}</option>
                         {% endfor %}
@@ -48,6 +51,7 @@
                     <label for="department" class="txt">Département</label>
                     <select name="department"
                         id="department">
+                        <option value="">Choisissez un département</option>
                         {% for department in departments %}
                             <option value="{{department.id}}">{{ department.name }}</option>
                         {% endfor %}
