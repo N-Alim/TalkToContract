@@ -1,70 +1,113 @@
-
 {% extends 'client/client.html.twig' %}
+
 
 {% block title %}Offres{% endblock %} 
 
-
 {% block body %}
-
-<main class="main-offers">
-<section class="wrap-all">
-
-    <div class="search">
-        <h3>Filtres<h3>
-        <div class ="filtre">
-            <ul id="filtre">
-           <li> <label for="jobName" class="txt">Nom du métier :</label>  
-            <input type="text" id="jobName" name="domaine" placeholder="ex: informatique"> <br /></li>
-            <li> <label for="offer_type" class="txt">Type d'offre :</label>
-            <select name="offertype" id="selectOfferType">
-            {# <div>{{ asset('client/js/script.js') }}</div> #}
-            </select></li>
-            <li> <label for="cat" class="txt">Catégorie :</label>
-            <select name="categorie" id="selectCat">
-            </select> <br /></li>
-            <li> <label for="sous-cat" class="txt">Sous-catégorie :</label>
-            <select name="sous-categorie" id="selectSousCat"></select><br /></li>
-
-            <li> <label for="ville" class="txt">Ville :</label> <input type="text" id="ville" name="ville" placeholder="Entrez une ville"><br /></li>
-            <li> <label for="department" class="txt">Département :</label><select name="department" id="selectDepartment"></select><br /></li>
-            <li> <label for="hourWeek">Heure par semaine : </label><br /> <span>de </span><input type="number" id="hourMin" name="hourWeek" min="0" max="50" value="7">
-            <span> à </span> <input type="number" id="hourMax" name="hourWeek" min="0" max="50" value="35"><span>heures.</span><br /></li>
-            <input type="submit" id="submit" value="Lancer la recherche">
-            </ul>
-        </div>
-    </div>
-    <div class="offre">
-        <div class="poste_offre">
-                <h2>Liste des offres<h2>  
-                <div class="jobs-list">
-                    <div class="article-listing"></div>
-                    <div class="article-listing"></div>
+    <main class="offers-list">
+        <div class="search">
+            <div class="filtre">
+                <button class="submit" type="submit" value="Search">
+                    <span>Rechercher</span>
+                    <i class="fas faw fa-search"></i>
+                </button>
+                <div class="form-group">
+                    <label for="jobName" class="txt">Nom du poste</label>
+                    <input type="text" id="jobName" name="domaine" placeholder="ex : informatique">
                 </div>
-        </div>
-            <div class="jobs-pagination-wrapper main-pagination-wrapper">
-                <ul class="pagination">
-                  <li>
-                        <a class="prev page-numbers" href=" {{ path("homepage_client") }}">
-                            <i class="ti-arrow-left">⬅</i>
-                        </a>
-                    </li>
-                    <li>
-                        <span class="page-numbers current" href="">1</span>
-                    </li>
-                      <li>
-                        <span class=" next page-numbers" href="">2</span>
-                    </li>
-                      <li>
-                        <a class="prev page-numbers" href="{{ path("homepage_client")}}">
-                            <i class="ti-arrow-right">➡</i>
-                        </a>
-                    </li>
-                </ul>
+                <div class="form-group">
+                    <label for="offer_type" class="txt">Type d'offre</label>
+                    <select name="offertype" id="selectOfferType">
+                        {% for offersType in offers_types %}
+                            <option value="{{offersType.id}}">{{ offersType.label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cat" class="txt">Catégorie</label>
+                    <select name="categorie" id="selectCat">
+                        {% for category in categories %}
+                            <option value="{{category.id}}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sous-cat" class="txt">Sous-catégorie</label>
+                    <select name="sous-categorie" id="selectSousCat">
+                        {% for subCategory in sub_categories %}
+                            <option value="{{subCategory.id}}">{{ subCategory.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ville" class="txt">Ville</label>
+                    <input type="text" id="ville" name="ville"
+                        placeholder="Entrez une ville">
+                    </div>
+                <div class="form-group">
+                    <label for="department" class="txt">Département</label>
+                    <select name="department"
+                        id="department">
+                        {% for department in departments %}
+                            <option value="{{department.id}}">{{ department.name }}</option>
+                        {% endfor %}
+                        </select></div>
+                <div class="form-group">
+                    <label for="hourWeek">Heure par semaine </label>
+                    <div class="multi-input">
+                        <input type="number"
+                            id="hourMin" name="hourWeek" min="0" max="50" value="7">
+                        <span> à </span>
+                        <input type="number" id="hourMax" name="hourWeek" min="0" max="50"
+                            value="35">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Expérience </label>
+                    <div class="multi-input">
+                        <input
+                            type="number" id="expMin" name="experience" min="0" max="50" value="1">
+                        <span> à </span> <input type="number" id="expMax" name="experience" min="0" max="50"
+                            value="35">
+                    </div>
+                </div>
+
             </div>
-        </div> 
-    </div>
-          
-    </section>
-         
-</main>
+        </div>
+        <div class="offers">
+            <h1>Liste des offres</h1>
+            <div class="offers-main-content">
+                <div class="offers-cards">
+                    
+                    {% for offer in offers %}
+                        <div class="offer-card">
+
+                            <h2><a href='http://localhost:4000/offer/{{offer.id}}'>{{offer.jobName}}</a> </h2>
+                            <div class="categoryOffer">{{ offer.subCategory.category.name }}</div>
+                            <div class="subCategoryOffer">{{ offer.subCategory.name }}</div>
+                            <div class="departmentOffer">{{ offer.department.name }}</div>
+                            <div class="hourOffer">{{ offer.weekHoursNumber }} heures par semaine </div>
+                            <div class="expOffer">{{offer.experience}} années d'expériences requises</div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="offer-card">
+                        <h2>JobName</h2>   
+                    </div>
+                </div>
+                <div class="pagination">
+                    <div class="pagination-inputs">
+                        <button class="prev page-numbers" href=" {{ path("homepage_client") }}">
+                            <i class="fas faw fa-arrow-left"></i>
+                        </button>
+                        <input type="number" class="page-numbers current" min="1" value="1">
+                        <button class="next page-numbers" href="{{ path("homepage_client")}}">
+                            <i class="fas faw fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <button class="go">Go !</button>
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}

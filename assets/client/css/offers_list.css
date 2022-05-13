@@ -1,0 +1,176 @@
+main.offers-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    align-items: flex-start;
+    width: 100%;
+}
+
+div.search{
+    width: 100%;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+    background-color: var(--blue-primary-color-secondary-faded);
+    border-bottom: 2px solid #000;
+}
+
+div.filtre {
+    width: 100%;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.offers{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2em;
+}
+
+div.offers-main-content{
+    width: 100%;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+}
+
+main.offers-list h1{
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+main.offers-list div.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+main.offers-list label{
+    font-size: var(--p-size);
+}
+
+main.offers-list div.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main.offers-list input, main.offers-list textarea, main.offers-list select{
+    height: 2em;
+    font-size: var(--p-size);
+    width: 60%;
+    padding: 4px 8px;
+}
+
+main.offers-list div.multi-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main.offers-list textarea {
+    height: 4em;
+}
+
+main.offers-list button{
+    font-size: var(--p-size);
+    padding: 8px 12px;
+    width: 60%;
+}
+
+main.offers-list button{
+    font-size: var(--p-size);
+    padding: 8px 12px;
+    width: 60%;
+}
+
+main.offers-list div.pagination{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.offers-list div.pagination button{
+    width: auto;
+}
+
+main.offers-list div.pagination button{
+    width: auto;
+}
+
+main.offers-list div.offers-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+main.offers-list div.offer-card {
+    background-color: var(--blue-primary-color-secondary-faded);
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+div.offer-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: .5em;
+}
+
+div.offer-card div{
+padding-top: 20px;
+}
+
+
+main.offers-list div.pagination-inputs{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    padding: 8px 12px;
+    width: fit-content;
+}
+
+main.offers-list a {
+	text-decoration: none;
+	font-weight: 300;
+	color: black;
+	padding: 4px 8px;
+	white-space: nowrap;
+}
+
+main.offers-list a:hover {
+	color: white;
+	background-color: #999;
+}
+
+@media screen and (min-width: 768px) 
+{
+}
+
+@media screen and (min-width: 1024px) 
+{
+    main.offers-list {
+        flex-direction: row;
+    }
+
+    div.search{
+        width: 40%;
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    div.offers{
+        width: 60%;
+    }
+
+}

@@ -9,16 +9,30 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\SubCategoryRepository;
+use App\Repository\CategoryRepository;
+use App\Repository\OffersTypeRepository;
+use App\Repository\DepartmentRepository;
 
 #[Route('offer')]
 class OfferController extends AbstractController
 {
     #[Route('/', name: 'offer_index_client', methods: ['GET'])]
-    public function test(OfferRepository $offerRepository): Response
+    public function test(OfferRepository $offerRepository,
+    CategoryRepository $categoryRepository,
+    SubCategoryRepository $subCategoryRepository,
+    OffersTypeRepository $offersTypeRepository,
+    DepartmentRepository $departmentRepository,
+    Request $request): Response
     {
+        $offers = array();
         // À remplacer par la page du front
         return $this->render('client/offer/index.html.twig', [
-            'offers' => $offerRepository->findAll(),
+            'offers' =>  $offerRepository->getOffersWithFilters($request, $offersPerPage = 25),
+            'categories' =>  $categoryRepository->findAll(),
+            'sub_categories' => $subCategoryRepository->findAll(),
+            'offers_types' => $offersTypeRepository->findAll(),
+            'departments' => $departmentRepository->findAll(),
         ]);
     }
 
