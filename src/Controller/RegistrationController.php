@@ -30,8 +30,17 @@ class RegistrationController extends AbstractController
                 )
             );
             
+            if ($form->get('accountType')->getData() === "ROLE_RECRUITER")
+            {
+                $user->setRoles(array("ROLE_RECRUITER"));
+            }
+
+            else 
+            {
+                $user->setRoles(array("ROLE_APPLICANT"));
+            }
+
             // 
-            $user->setRoles(array("PLACEHOLDER"));
 
             $entityManager->persist($user);
             $entityManager->flush();
