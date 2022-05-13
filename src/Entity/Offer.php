@@ -249,15 +249,11 @@ class Offer
         $data = array();
         $data['id'] = $this->getId();
         $data['job_name'] = $this->getJobName();
-        $data['description'] = $this->getDescription();
-        $data['tasks'] = $this->getTasks();
         $data['week_hours_number'] = $this->getWeekHoursNumber();
-        $data['town'] = $this->getTown();
-        // $data['address'] = $this->getAddress();
-        $data['company'] = $this->getCompany();
         $data['experience'] = $this->getExperience();
-        // $data['offers_type_id'] = $this->getOffersType()->getId();
-        // $data['department_id'] = $this->getDepartment()->getId();
+        $data['sub_category'] = $this->getSubCategory()->getName();
+        $data['category'] = $this->getSubCategory()->getCategory()->getName();
+        $data['department'] = $this->getDepartment()->getName();
 
         return $data;
     }
