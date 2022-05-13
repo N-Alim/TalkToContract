@@ -1,11 +1,16 @@
 {% extends "client/client.html.twig" %} 
 
-{% block title %}Offre{% endblock %}
+{% block title %}Nouvelle offre{% endblock %}
 
 {% block body %}
-    <h1>Créé une nouvelle offre</h1>
+    <main class="form">
+        <div class="mainContent">
 
-    {{ include('client/offer/_form.html.twig') }}
+            <h1>Créer une nouvelle offre</h1>
 
-    <a href="{{ path('offer_index_client') }}">Retour à la liste</a>
+            {{ include('client/offer/_form.html.twig') }}
+
+            <a href="{{ path('offer_index_client') }}">&lt;&lt; Retour à la liste</a>
+        </div>
+    </main>
 {% endblock %}

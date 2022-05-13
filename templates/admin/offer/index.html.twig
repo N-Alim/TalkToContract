@@ -1,6 +1,6 @@
 {% extends "admin/admin.html.twig" %} 
 
-{% block title %}Offer index {% endblock %}
+{% block title %}Offres{% endblock %}
 
 {% block body %}
     <h1>Index des offres</h1>
@@ -15,8 +15,8 @@
                 <th>Entreprise</th>
                 <th>Expérience</th>
                 <th>Active</th>
-                <th>Créé le</th>
-                <th>Modifié le</th>
+                {# <th>Créé le</th> #}
+                {# <th>Modifié le</th> #}
                 <th>Actions</th>
             </tr>
         </thead>
@@ -30,8 +30,8 @@
                 <td>{{ offer.company }}</td>
                 <td>{{ offer.experience }}</td>
                 <td>{{ offer.active ? 'Yes' : 'No' }}</td>
-                <td>{{ offer.createdAt ? offer.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ offer.modifiedAt ? offer.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ offer.createdAt ? offer.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                {# <td>{{ offer.modifiedAt ? offer.modifiedAt|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
                     <a href="{{ path('offer_show_admin', {'id': offer.id}) }}">Afficher</a>
                     {# <a href="{{ path('offer_edit_admin', {'id': offer.id}) }}">edit</a> #}

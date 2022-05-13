@@ -2,16 +2,16 @@
 {% block title %}SubCategory index{% endblock %}
 
 {% block body %}
-    <h1>SubCategory index</h1>
+    <h1>Index des sous-catégories</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Created_at</th>
-                <th>Modified_at</th>
-                <th>actions</th>
+                <th>Nom de la sous-catégorie</th>
+                <th>Créé le</th>
+                <th>Modifié le</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +22,8 @@
                 <td>{{ sub_category.createdAt ? sub_category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ sub_category.modifiedAt ? sub_category.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('sub_category_show_admin', {'id': sub_category.id}) }}">show</a>
-                    <a href="{{ path('sub_category_edit_admin', {'id': sub_category.id}) }}">edit</a>
+                    <a href="{{ path('sub_category_show_admin', {'id': sub_category.id}) }}">Afficher</a>
+                    <a href="{{ path('sub_category_edit_admin', {'id': sub_category.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -34,5 +34,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('sub_category_new_admin') }}">Create new</a>
+    <a href="{{ path('sub_category_new_admin') }}">Ajouter une sous-catégorie</a>
 {% endblock %}
