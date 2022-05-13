@@ -15,7 +15,8 @@ import './client/css/form.css';
 
 import './client/css/offers_edition.css';
 
-import './client/js/script.js';
+import './client/js/offerList';
 import './client/js/burgerMenu.js';
+import './client/js/pagination.js';
 
 
