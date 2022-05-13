@@ -1,14 +1,14 @@
-let categorie= document.querySelector('#selectCat');
-let sous_cat= document.querySelector('#selectSousCat');
-let ville= document.querySelector('#ville');
-let department= document.querySelector('#department');
-let hourMin= document.querySelector('#hourMin');
-let hourMax= document.querySelector('#hourMax');
-let jobName = document.querySelector("#jobName");
-let expMin= document.querySelector("#expMin");
-let expMax= document.querySelector("#expMax");
+let categorie= document.querySelector('#selectCat').value;
+let sous_cat= document.querySelector('#selectSousCat').value;
+let ville= document.querySelector('#ville').value;
+let department= document.querySelector('#department').value;
+let hourMin= document.querySelector('#hourMin').value;
+let hourMax= document.querySelector('#hourMax').value;
+let jobName = document.querySelector("#jobName").value;
+let expMin= document.querySelector("#expMin").value;
+let expMax= document.querySelector("#expMax").value;
 let pagination = 1;
-let offerType= document.querySelector('select#selectOfferType');
+let offerType= document.querySelector('select#selectOfferType').value;
 
 
 const go = document.querySelector(".go");
@@ -79,7 +79,7 @@ function getOffers(){
 
 function getPagination(){
 
-    pagination = document.querySelector('.pagination');
+    pagination = document.querySelector('input.page-numbers.current').value;
 
     axios.get('http://localhost:4000/offer/get', {
     params: {
@@ -89,9 +89,9 @@ function getPagination(){
         town: ville,
         experience_min: expMin,
         experience_max: expMax,
-        category_id: selectCat,
-        sub_category_id: selectSousCat,
-        offers_type_id: selectOfferType,
+        category_id: categorie,
+        sub_category_id: sous_cat,
+        offers_type_id: offerType,
         department_id: department,
         pagination: pagination,
     }
@@ -102,9 +102,9 @@ function getPagination(){
         offerCard.className = "offers-cards";
         oldOffersList.replaceWith(offersList);
 
-        for (const offer in response.data)
+        for (let cnt = 0;  cnt < (response.data).length; ++ cnt)
         {
-            offersList.appendChild(createOfferCard(offer));
+            offersList.appendChild(createOfferCard((response.data)[cnt]));
         }  
     })
     .catch(function (error){
@@ -116,8 +116,7 @@ function getPagination(){
 function incrementPagination(pagNumber){
 
     pagination += pagNumber;
-    document.querySelector('.pagination').value = pagination;
-    ;
+    document.querySelector('input.page-numbers.current').innerText = pagination;
 
     axios.get('http://localhost:4000/offer/get', {
             params: {
@@ -127,9 +126,9 @@ function incrementPagination(pagNumber){
                 town: ville,
                 experience_min: expMin,
                 experience_max: expMax,
-                category_id: selectCat,
-                sub_category_id: selectSousCat,
-                offers_type_id: selectOfferType,
+                category_id: categorie,
+                sub_category_id: sous_cat,
+                offers_type_id: offerType,
                 department_id: department,
                 pagination: pagination,
             }
@@ -140,9 +139,9 @@ function incrementPagination(pagNumber){
         offersList.className = "offers-cards";
         oldOffersList.replaceWith(offersList);
 
-        for (const offer in response.data)
+        for (let cnt = 0;  cnt < (response.data).length; ++ cnt)
         {
-            offersList.appendChild(createOfferCard(offer));
+            offersList.appendChild(createOfferCard((response.data)[cnt]));
         }  
     })
     .catch(function (error){
