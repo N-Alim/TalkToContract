@@ -19,32 +19,33 @@ class RegistrationController extends AbstractController
     {
         if ($this->getUser() === null) 
         {
-        if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
-            $user->setPassword(
-            $userPasswordHasher->hashPassword(
-                    $user,
-                    $form->get('plainPassword')->getData()
-                )
-            );
-            
-            if ($form->get('accountType')->getData() === "ROLE_RECRUITER")
-            {
-                $user->setRoles(array("ROLE_RECRUITER"));
+            if ($form->isSubmitted() && $form->isValid()) {
+                // encode the plain password
+                $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                        $user,
+                        $form->get('plainPassword')->getData()
+                    )
+                );
+                
+                if ($form->get('accountType')->getData() === "ROLE_RECRUITER")
+                {
+                    $user->setRoles(array("ROLE_RECRUITER"));
+                }
+
+                else 
+                {
+                    $user->setRoles(array("ROLE_APPLICANT"));
+                }
+
+                // 
+
+                $entityManager->persist($user);
+                $entityManager->flush();
+                // do anything else you need here, like send an email
+
+                return $this->redirectToRoute('homepage_client');
             }
-
-            else 
-            {
-                $user->setRoles(array("ROLE_APPLICANT"));
-            }
-
-            // 
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
-
-            return $this->redirectToRoute('homepage_client');
         }
 
         else

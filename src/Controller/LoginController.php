@@ -28,9 +28,7 @@ class LoginController extends AbstractController
 
         else
         {
-            return $this->render('client/client.html.twig', [
-                'controller_name' => 'DefaultController',
-            ]);
+            return $this->redirectToRoute('homepage_client');
         }
     }
 
