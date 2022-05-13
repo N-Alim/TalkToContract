@@ -14,14 +14,14 @@ let offerType= document.querySelector('select#selectOfferType');
 const go = document.querySelector(".go");
 go.addEventListener("click", getPagination);
 
-const buttonPrev = document.querySelector(".prev");
+const buttonPrev = document.querySelector("button.prev");
 buttonPrev.addEventListener("click", () => 
 {
     incrementPagination(-1)
 });
 
-const buttonNext = document.querySelector(".next");
-buttonPrev.addEventListener("click", () => 
+const buttonNext = document.querySelector("button.next");
+buttonNext.addEventListener("click", () => 
 {
     incrementPagination(+1)
 });
@@ -34,16 +34,16 @@ const axios = require('axios');
 
 function getOffers(){
 
-    categorie = document.querySelector('#selectCat');
-    sous_cat = document.querySelector('#selectSousCat');
-    ville = document.querySelector('#ville');
-    department = document.querySelector('#department');
-    hourMin = document.querySelector('#hourMin');
-    hourMax = document.querySelector('#hourMax');
-    jobName = document.querySelector("#jobName");
-    expMin = document.querySelector("#expMin");
-    expMax = document.querySelector("#expMax");
-    offerType= document.querySelector('select#selectOfferType');
+    categorie = document.querySelector('select#selectCat').value;
+    sous_cat = document.querySelector('select#selectSousCat').value;
+    ville = document.querySelector('#ville').value;
+    department = document.querySelector('select#department').value;
+    hourMin = document.querySelector('#hourMin').value;
+    hourMax = document.querySelector('#hourMax').value;
+    jobName = document.querySelector("#jobName").value;
+    expMin = document.querySelector("#expMin").value;
+    expMax = document.querySelector("#expMax").value;
+    offerType= document.querySelector('select#selectOfferType').value;
     
     axios.get('http://localhost:4000/offer/get', {
     params: {
@@ -53,9 +53,9 @@ function getOffers(){
         town: ville,
         experience_min: expMin,
         experience_max: expMax,
-        category_id: selectCat,
-        sub_category_id: selectSousCat,
-        offers_type_id: selectOfferType,
+        category_id: categorie,
+        sub_category_id: sous_cat,
+        offers_type_id: offerType,
         department_id: department,
         pagination: 1,
     }
@@ -63,12 +63,12 @@ function getOffers(){
     .then(function (response){
         const oldOffersList = document.querySelector('div.offers-cards')
         const offersList = document.createElement("div");
-        offerCard.className = "offers-cards";
+        offersList.className = "offers-cards";
         oldOffersList.replaceWith(offersList);
 
-        for (const offer in response.data)
+        for (let cnt = 0;  cnt < (response.data).length; ++ cnt)
         {
-            offersList.appendChild(createOfferCard(offer));
+            offersList.appendChild(createOfferCard((response.data)[cnt]));
         }    
     })
     .catch(function (error){
@@ -116,26 +116,28 @@ function getPagination(){
 function incrementPagination(pagNumber){
 
     pagination += pagNumber;
+    document.querySelector('.pagination').value = pagination;
+    ;
 
     axios.get('http://localhost:4000/offer/get', {
-    params: {
-        job_name: jobName,
-        week_hours_number_min: hourMin,
-        week_hours_number_max: hourMax,
-        town: ville,
-        experience_min: expMin,
-        experience_max: expMax,
-        category_id: selectCat,
-        sub_category_id: selectSousCat,
-        offers_type_id: selectOfferType,
-        department_id: department,
-        pagination: pagination,
-    }
+            params: {
+                job_name: jobName,
+                week_hours_number_min: hourMin,
+                week_hours_number_max: hourMax,
+                town: ville,
+                experience_min: expMin,
+                experience_max: expMax,
+                category_id: selectCat,
+                sub_category_id: selectSousCat,
+                offers_type_id: selectOfferType,
+                department_id: department,
+                pagination: pagination,
+            }
 })
     .then(function (response){
         const oldOffersList = document.querySelector('div.offers-cards')
         const offersList = document.createElement("div");
-        offerCard.className = "offers-cards";
+        offersList.className = "offers-cards";
         oldOffersList.replaceWith(offersList);
 
         for (const offer in response.data)

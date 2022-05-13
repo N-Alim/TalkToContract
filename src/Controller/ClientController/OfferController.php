@@ -31,7 +31,7 @@ class OfferController extends AbstractController
             'offers' =>  $offerRepository->getOffersWithFilters($request, $offersPerPage = 25),
             'categories' =>  $categoryRepository->findAll(),
             'sub_categories' => $subCategoryRepository->findAll(),
-            'offers_type' => $offersTypeRepository->findAll(),
+            'offers_types' => $offersTypeRepository->findAll(),
             'departments' => $departmentRepository->findAll(),
         ]);
     }

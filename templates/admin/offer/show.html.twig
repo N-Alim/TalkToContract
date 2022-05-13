@@ -28,6 +28,10 @@
                 <td>{{ offer.subCategory.name }}</td>
             </tr>
             <tr>
+                <th>Département</th>
+                <td>{{ offer.department.name }}</td>
+            </tr>
+            <tr>
                 <th>Description</th>
                 <td>{{ offer.description }}</td>
             </tr>
@@ -36,7 +40,11 @@
                 <td>{{ offer.tasks }}</td>
             </tr>
             <tr>
-                <th>Nombre d'heures/semaine</th>
+                <th>Type d'offre</th>
+                <td>{{ offer.offersType.label }}</td>
+            </tr>
+            <tr>
+                <th>Nombre d'heures par semaine</th>
                 <td>{{ offer.weekHoursNumber }}</td>
             </tr>
             <tr>

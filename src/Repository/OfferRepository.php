@@ -123,8 +123,6 @@ class OfferRepository extends ServiceEntityRepository
             ->setParameter(6, intval($experience_max));
         }
 
-        // À décommenter quand la table sub_category est mis en place et liée à la table offer
-
         if ($sub_category_id !== "")
         {
             $queryBuilder->andWhere('o.sub_category = ?7')
