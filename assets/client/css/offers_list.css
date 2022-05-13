@@ -31,6 +31,8 @@ div.offers{
     align-items: center;
     justify-content: flex-start;
     padding-top: 2em;
+    height: auto;
+    overflow-y: scroll;
 }
 
 div.offers-main-content{
@@ -39,6 +41,7 @@ div.offers-main-content{
     display: flex;
     flex-direction: column;
     padding: 3em;
+
 }
 
 main.offers-list h1{
@@ -155,6 +158,10 @@ main.offers-list a:hover {
 
 @media screen and (min-width: 768px) 
 {
+    div.offers{
+        width: 60%;
+        height: 84vh;
+    }
 }
 
 @media screen and (min-width: 1024px) 
@@ -171,6 +178,7 @@ main.offers-list a:hover {
 
     div.offers{
         width: 60%;
+        height: 84vh;
     }
 
 }
