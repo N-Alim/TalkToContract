@@ -1,6 +1,6 @@
 {% extends 'client/client.html.twig' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Se connecter{% endblock %}
 
 {% block body %}
     <main class="form wrap-10">
@@ -21,9 +21,8 @@
                 <input type="hidden" name="_target_path" value="/account"/> #}
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                <button type="submit">Connecter</button>
-            </form>
+              <button type="submit">Se connecter</button>
+          </form>
         </div>
     </main>
 {% endblock %}

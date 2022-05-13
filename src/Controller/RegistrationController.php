@@ -17,10 +17,8 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
-        $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
-
+        if ($this->getUser() === null) 
+        {
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
             $user->setPassword(
@@ -49,8 +47,9 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('homepage_client');
         }
 
-        return $this->render('client/registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
-        ]);
+        else
+        {
+            return $this->redirectToRoute('homepage_client');
+        }
     }
 }
