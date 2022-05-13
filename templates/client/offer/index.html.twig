@@ -5,80 +5,90 @@
 
 
 {% block body %}
-<main class="offers-list">
-	<div class="search">
-		<div class="filtre">
-			<button class="submit" type="submit" value="Search">
-				<span>Rechercher</span>
-				<i class="fas faw fa-search"></i>
-			</button>
-			<div class="form-group">
-				<label for="jobName" class="txt">Nom du poste</label>
-				<input type="text" id="jobName" name="jobName" placeholder="ex : informatique">
-			</div>
-			<div class="form-group">
-				<label for="offer_type" class="txt">Type d'offre</label>
-				<select name="offer_type" id="selectOfferType"></select>
-			</div>
-			<div class="form-group">
-				<label for="categorie" class="txt">Catégorie</label>
-				<select name="categorie" id="selectCat"></select>
-			</div>
-			<div class="form-group">
-				<label for="sous-categorie" class="txt">Sous-catégorie</label>
-				<select name="sous-categorie" id="selectSousCat"></select>
-			</div>
-			<div class="form-group">
-				<label for="ville" class="txt">Ville</label>
-				<input type="text" id="ville" name="ville" placeholder="Entrez une ville">
-			</div>
-			<div class="form-group">
-				<label for="department" class="txt">Département</label>
-				<select name="department" id="selectDepartment"></select>
-			</div>
-			<div class="form-group">
-				<label for="hourWeek">Heure par semaine
-				</label>
-				<div class="hours">
-					<input type="number" id="hourMin" name="hourWeek" min="0" max="50" value="7">
-					<span>
-						à
-					</span>
-					<input type="number" id="hourMax" name="hourWeek" min="0" max="50" value="35">
-				</div>
-				<div class="form-group">
-					<label for="experience">Année d'expérience </label>
-					<div class="exp">
-						<input type="number" id="expMin" name="experience" min="0" max="50" value="1">
-						<span> à </span>
-						<input type="number" id="expMax" name="experience" min="0" max="50" value="35">
-						<span>ans </span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="offre">
-			<h1>Liste des offres<h1>
-					<div class="offers-list">
-						<div class="jobs-list">
-							<div class="article-listing"></div>
-							<div class="article-listing"></div>
-						</div>
-						<div class="pagination">
-							<a class="prev page-numbers" href="{{ path("homepage_client") }}">
-								<i class="ti-arrow-left">⬅</i>
-							</a>
-							<input type="number" class="page-numbers current" min="1" value="1">
+    <main class="offers-list">
+        <div class="search">
+            <div class="filtre">
+                <button class="submit" type="submit" value="Search">
+                    <span>Rechercher</span>
+                    <i class="fas faw fa-search"></i>
+                </button>
+                <div class="form-group">
+                    <label for="jobName" class="txt">Nom du poste</label>
+                    <input type="text" id="jobName" name="domaine" placeholder="ex : informatique">
+                </div>
+                <div class="form-group">
+                    <label for="offer_type" class="txt">Type d'offre</label>
+                    <select name="offertype" id="selectOfferType">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cat" class="txt">Catégorie</label>
+                    <select name="categorie" id="selectCat">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sous-cat" class="txt">Sous-catégorie</label>
+                    <select name="sous-categorie" id="selectSousCat"></select>
+                </div>
+                <div class="form-group">
+                    <label for="ville" class="txt">Ville</label>
+                    <input type="text" id="ville" name="ville"
+                        placeholder="Entrez une ville">
+                    </div>
+                <div class="form-group">
+                    <label for="department" class="txt">Département</label><select name="department"
+                        id="selectDepartment"></select></div>
+                <div class="form-group">
+                    <label for="hourWeek">Heure par semaine </label>
+                    <div class="multi-input">
+                        <input type="number"
+                            id="hourMax" name="hourWeek" min="0" max="50" value="7">
+                        <span> à </span>
+                        <input type="number" id="hourMax" name="hourWeek" min="0" max="50"
+                            value="35">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Expérience </label>
+                    <div class="multi-input">
+                        <input
+                            type="number" id="expMin" name="experience" min="0" max="50" value="1">
+                        <span> à </span> <input type="number" id="expMax" name="experience" min="0" max="50"
+                            value="35">
+                    </div>
+                </div>
 
-							<li>
-								<a class="next page-numbers" href="{{ path("homepage_client")}}">
-									<i class="ti-arrow-right">➡</i>
-								</a>
-							</li>
-							<button class="go">Go !</button>
-							</ul>
-
-						</div>
-					</div>
-</main>
+            </div>
+        </div>
+        <div class="offers">
+            <h1>Liste des offres</h1>
+            <div class="offers-main-content">
+                <div class="offers-cards">
+                    <div class="offer-card">
+                        <h2><a href="">JobName</a> </h2>
+                        <div class="categoryOffer">Catégorie</div>
+                        <div class="subCategoryOffer">Sous-catégorie</div>
+                        <div class="departmentOffer">Département</div>
+                        <div class="hourOffer">Heure par semaine </div>
+                        <div class="expOffer">Année d'expérience </div>
+                    </div>
+                    <div class="offer-card">
+                        <h2>JobName</h2>   
+                    </div>
+                </div>
+                <div class="pagination">
+                    <div class="pagination-inputs">
+                        <button class="prev page-numbers" href=" {{ path("homepage_client") }}">
+                            <i class="fas faw fa-arrow-left"></i>
+                        </button>
+                        <input type="number" class="page-numbers current" min="1" value="1">
+                        <button class="next page-numbers" href="{{ path("homepage_client")}}">
+                            <i class="fas faw fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <button class="go">Go !</button>
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}
