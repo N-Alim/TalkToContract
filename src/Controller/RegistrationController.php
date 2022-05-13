@@ -17,31 +17,42 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
-        $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
-            $user->setPassword(
-            $userPasswordHasher->hashPassword(
-                    $user,
-                    $form->get('plainPassword')->getData()
-                )
-            );
-            
-            // 
-            $user->setRoles(array("PLACEHOLDER"));
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
-
-            return $this->redirectToRoute('homepage_client');
+        if ($this->getUser() === null) 
+        {
+            $user = new User();
+            $form = $this->createForm(RegistrationFormType::class, $user);
+            $form->handleRequest($request);
+    
+            if ($form->isSubmitted() && $form->isValid()) {
+                // encode the plain password
+                $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                        $user,
+                        $form->get('plainPassword')->getData()
+                    )
+                );
+                
+                // 
+                $user->setRoles(array("PLACEHOLDER"));
+    
+                $entityManager->persist($user);
+                $entityManager->flush();
+                // do anything else you need here, like send an email
+    
+                return $this->redirectToRoute('homepage_client');
+            }
+    
+            return $this->render('client/registration/register.html.twig', [
+                'registrationForm' => $form->createView(),
+            ]);
         }
 
-        return $this->render('client/registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
-        ]);
+        else
+        {
+            return $this->render('client/client.html.twig', [
+                'controller_name' => 'DefaultController',
+            ]);
+        }
     }
 }
